@@ -1,13 +1,92 @@
-{{!< default}}
-
 <main class="site-main">
 
-    <div class="post-feed gh-feed gh-canvas">
-        {{#foreach posts}}
-            {{> "loop"}}
-        {{/foreach}}
+  <div class="portfolio-hero">
+    <h1 class="portfolio-name">Divya Prabhakar</h1>
+    <div class="portfolio-tagline">
+      Head of Digital Product Design at [Climate Company]. Building software
+      that bridges hardware and climate solutions. Previously frontend engineer
+      at Adobe and Stitch Fix.
+    </div>
+  </div>
+
+  <div class="portfolio-content">
+    <div class="portfolio-grid">
+
+      <!-- Building Column -->
+      <div class="portfolio-column">
+        <h3 class="portfolio-column-title">Building</h3>
+
+        <div class="portfolio-section">
+          <h4 class="portfolio-section-title">Craft</h4>
+          <p class="portfolio-section-desc">Implementing interfaces and
+            interactions.</p>
+        </div>
+
+        <!-- Add your building/tools posts here -->
+        <div class="portfolio-item">
+          <a href="#" class="portfolio-link">
+            <h4 class="portfolio-item-title">Design System for Hardware Teams</h4>
+            <p class="portfolio-item-desc">Building design systems that work
+              across software and manufacturing.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Projects Column -->
+      <div class="portfolio-column">
+        <h3 class="portfolio-column-title">Projects</h3>
+
+        <div class="portfolio-item">
+          <a href="#" class="portfolio-link">
+            <h4 class="portfolio-item-title">Bollywood Data Viz
+              <span class="portfolio-external">↗</span></h4>
+            <p class="portfolio-item-desc">Interactive visualizations of
+              industry trends and patterns.</p>
+          </a>
+        </div>
+
+        <div class="portfolio-item">
+          <a href="#" class="portfolio-link">
+            <h4 class="portfolio-item-title">Digital Closet Analysis</h4>
+            <p class="portfolio-item-desc">5 years of usage data insights and
+              style optimization.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Writing Column -->
+      <div class="portfolio-column">
+        <h3 class="portfolio-column-title">Writing</h3>
+
+        <div class="portfolio-item">
+          <a href="#" class="portfolio-link">
+            <h4 class="portfolio-item-title">AI in Climate Product Design</h4>
+            <p class="portfolio-item-desc">Integrating AI tools into
+              hardware-focused workflows.</p>
+          </a>
+        </div>
+
+        <div class="portfolio-item">
+          <a href="/tag/writing/" class="portfolio-link">
+            <h4 class="portfolio-item-title">All writing</h4>
+            <p class="portfolio-item-desc">Thoughts on design, climate tech, and
+              cultural analysis.</p>
+          </a>
+        </div>
+      </div>
     </div>
 
-    {{pagination}}
+    <!-- Now Section -->
+    <div class="portfolio-now">
+      <h3 class="portfolio-now-title">Now</h3>
+      <div class="portfolio-now-content">
+        <div class="portfolio-now-text">
+          Leading digital product design for climate tech hardware. Exploring AI
+          integration in design workflows. Based in Philadelphia with two kids
+          who teach me systems thinking daily.
+        </div>
+      </div>
+    </div>
+  </div>
 
 </main>
