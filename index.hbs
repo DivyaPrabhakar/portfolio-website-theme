@@ -1,11 +1,43 @@
 <main class="site-main">
+  <style>
+    /* Force sans-serif fonts */ .site-main { padding: 10rem 0; }
+    .portfolio-hero, .portfolio-content, .portfolio-grid, .portfolio-name,
+    .portfolio-tagline, .portfolio-column-title, .portfolio-item-title,
+    .portfolio-item-desc, .portfolio-now-title, .portfolio-now-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif; } .portfolio-hero { margin: 0 auto 4rem auto; padding: 0
+    20px; text-align: left; font-size: 1.5rem; } .portfolio-hero,
+    .portfolio-item, .portfolio-link { color: #3a3a3a; } .portfolio-name,
+    .portfolio-item-desc, .portfolio-item-title, .portfolio-tagline,
+    .portfolio-item-title { font-size: 1rem; } .portfolio-external,
+    .portfolio-column-title, .portfolio-role { color: #682523; }
+    .portfolio-content, .portfolio-tagline, .portfolio-hero { max-width: 900px;
+    } .portfolio-name { font-weight: 400; margin: 0 0 1.5rem 0; line-height:
+    1.2; } .portfolio-tagline { font-weight: 400; line-height: 1.6;
+    margin-bottom: 4rem; } .portfolio-content { margin: 0 auto; padding: 0 20px;
+    } .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap:
+    5rem; margin-bottom: 4rem; } .portfolio-column-title { font-size: 0.9rem;
+    font-weight: 400; margin: 0 0 2.5rem 0; } .portfolio-item { margin-bottom:
+    2.5rem; } .portfolio-link { display: block; text-decoration: none;
+    transition: color 0.15s ease; } .portfolio-item-title { font-weight: 400;
+    margin: 0 0 0.4rem 0; line-height: 1.4; text-decoration: underline; }
+    .portfolio-item-desc { font-size: 0.85rem; font-weight: 400; line-height:
+    1.45; } .portfolio-now { border-top: 1px solid #e6e6e6; padding-top: 2.5rem;
+    margin-top: 5rem; } .portfolio-now-title { font-size: 0.95rem; font-weight:
+    400; margin: 0 0 1.5rem 0; } .portfolio-now-text { font-size: 0.9rem;
+    font-weight: 400; line-height: 1.6; } @media (max-width: 768px) {
+    .portfolio-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  </style>
 
   <div class="portfolio-hero">
-    <h1 class="portfolio-name">Divya Prabhakar</h1>
+    <h1 class="portfolio-name">Divya Prabhakar:
+      <em class="portfolio-role">Head of Digital Product Design at Form Energy</em>
+    </h1>
     <div class="portfolio-tagline">
-      Head of Digital Product Design at [Climate Company]. Building software
-      that bridges hardware and climate solutions. Previously frontend engineer
-      at Adobe and Stitch Fix.
+      I design product ecosystems where digital meets physical. Design thinking
+      with engineering depth -- I see how decisions cascade through hardware,
+      software, and operations, seamlessly moving between strategy and
+      execution.
     </div>
   </div>
 
@@ -16,20 +48,20 @@
       <div class="portfolio-column">
         <h3 class="portfolio-column-title">Building</h3>
 
-        <div class="portfolio-section">
-          <h4 class="portfolio-section-title">Craft</h4>
-          <p class="portfolio-section-desc">Implementing interfaces and
-            interactions.</p>
+        <div class="portfolio-item">
+          <h4 class="portfolio-item-title">Craft</h4>
+          <p class="portfolio-item-desc">Implementing interfaces and
+            interactions with AI-enhanced workflows.</p>
         </div>
 
-        <!-- Add your building/tools posts here -->
         <div class="portfolio-item">
-          <a href="#" class="portfolio-link">
-            <h4 class="portfolio-item-title">Design System for Hardware Teams</h4>
-            <p class="portfolio-item-desc">Building design systems that work
-              across software and manufacturing.</p>
+          <a href="/tag/building/" class="portfolio-link">
+            <h4 class="portfolio-item-title">All building</h4>
+            <p class="portfolio-item-desc">Design systems, workflows, and tools
+              that bridge hardware and software.</p>
           </a>
         </div>
+
       </div>
 
       <!-- Projects Column -->
@@ -37,21 +69,27 @@
         <h3 class="portfolio-column-title">Projects</h3>
 
         <div class="portfolio-item">
-          <a href="#" class="portfolio-link">
+          <a
+            href="https://bollywood-data-viz.com"
+            class="portfolio-link"
+            target="_blank"
+          >
             <h4 class="portfolio-item-title">Bollywood Data Viz
               <span class="portfolio-external">↗</span></h4>
-            <p class="portfolio-item-desc">Interactive visualizations of
-              industry trends and patterns.</p>
+            <p class="portfolio-item-desc">Interactive visualizations analyzing
+              50+ years of industry trends, box office patterns, and cultural
+              evolution. Built with D3.js and cultural insight.</p>
           </a>
         </div>
 
         <div class="portfolio-item">
-          <a href="#" class="portfolio-link">
-            <h4 class="portfolio-item-title">Digital Closet Analysis</h4>
-            <p class="portfolio-item-desc">5 years of usage data insights and
-              style optimization.</p>
+          <a href="/tag/projects/" class="portfolio-link">
+            <h4 class="portfolio-item-title">All projects</h4>
+            <p class="portfolio-item-desc">Data visualization, cultural
+              analysis, and cross-disciplinary explorations.</p>
           </a>
         </div>
+
       </div>
 
       <!-- Writing Column -->
@@ -59,34 +97,42 @@
         <h3 class="portfolio-column-title">Writing</h3>
 
         <div class="portfolio-item">
-          <a href="#" class="portfolio-link">
-            <h4 class="portfolio-item-title">AI in Climate Product Design</h4>
-            <p class="portfolio-item-desc">Integrating AI tools into
-              hardware-focused workflows.</p>
+          <a
+            href="https://kuchhaikuch.substack.com"
+            class="portfolio-link"
+            target="_blank"
+          >
+            <h4 class="portfolio-item-title">Indian Art Newsletter
+              <span class="portfolio-external">↗</span></h4>
+            <p class="portfolio-item-desc">Weekly curation of contemporary
+              Indian artists, traditional techniques, and cultural movements.
+              2000+ subscribers.</p>
           </a>
         </div>
 
         <div class="portfolio-item">
           <a href="/tag/writing/" class="portfolio-link">
             <h4 class="portfolio-item-title">All writing</h4>
-            <p class="portfolio-item-desc">Thoughts on design, climate tech, and
-              cultural analysis.</p>
+            <p class="portfolio-item-desc">Thoughts on design, climate tech,
+              cultural analysis, and the intersection of technology and
+              humanity.</p>
           </a>
         </div>
+
       </div>
     </div>
 
     <!-- Now Section -->
-    <div class="portfolio-now">
+    {{! <div class="portfolio-now">
       <h3 class="portfolio-now-title">Now</h3>
-      <div class="portfolio-now-content">
-        <div class="portfolio-now-text">
-          Leading digital product design for climate tech hardware. Exploring AI
-          integration in design workflows. Based in Philadelphia with two kids
-          who teach me systems thinking daily.
-        </div>
+      <div class="portfolio-now-text">
+        Leading digital product design for climate tech hardware. Exploring AI
+        integration in design workflows while building systems that work across
+        software and manufacturing. Based in Philadelphia with two kids who
+        teach me systems thinking daily. Currently curating Indian art and
+        analyzing Bollywood through data visualization.
       </div>
-    </div>
+    </div> }}
   </div>
 
 </main>
