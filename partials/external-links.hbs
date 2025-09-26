@@ -1,0 +1,22 @@
+{{! partials/external-links.hbs }}
+{{#if (match @type "kuch-hai")}}
+  <div class="portfolio-item">
+    <a
+      href="https://kuchhai.substack.com/"
+      class="portfolio-link"
+      target="_blank"
+    >
+      <h4 class="portfolio-item-title">Kuch Hai: Art from the South Asian
+        Subcontinent
+        <span class="portfolio-external">↗</span>
+      </h4>
+      <p class="portfolio-item-desc">Every week, one piece of art with visuals,
+        attribution, and materials used. Intentional informational blank spaces
+        so there is room for your raw interpretation as a viewer.</p>
+    </a>
+  </div>
+{{/if}}
+
+{{#if (match @type "other-link")}}
+  <!-- Add other reusable links here -->
+{{/if}}
