@@ -1,6 +1,6 @@
 <main class="site-main">
   <style>
-    /* Force sans-serif fonts */ .site-main { padding: 10rem 0; }
+    /* Force sans-serif fonts */ .site-main { padding: 8rem 0; }
     .portfolio-hero, .portfolio-content, .portfolio-grid, .portfolio-name,
     .portfolio-tagline, .portfolio-column-title, .portfolio-item-title,
     .portfolio-item-desc, .portfolio-now-title, .portfolio-now-text {
@@ -11,16 +11,16 @@
     .portfolio-item-desc, .portfolio-item-title, .portfolio-tagline,
     .portfolio-item-title { font-size: 1rem; } .portfolio-external,
     .portfolio-column-title, .portfolio-role { color: #682523; }
-    .portfolio-content, .portfolio-tagline, .portfolio-hero { max-width: 900px;
+    .portfolio-content, .portfolio-tagline, .portfolio-hero { max-width: 1200px;
     } .portfolio-name { font-weight: 400; margin: 0 0 1.5rem 0; line-height:
     1.2; } .portfolio-tagline { font-weight: 400; line-height: 1.6;
     margin-bottom: 4rem; } .portfolio-content { margin: 0 auto; padding: 0 20px;
-    } .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap:
-    5rem; margin-bottom: 4rem; } .portfolio-column-title { font-size: 0.9rem;
-    font-weight: 400; margin: 0 0 2.5rem 0; } .portfolio-item { margin-bottom:
-    2.5rem; } .portfolio-link { display: block; text-decoration: none;
-    transition: color 0.15s ease; } .portfolio-item-title { font-weight: 400;
-    margin: 0 0 0.4rem 0; line-height: 1.4; text-decoration: underline; }
+    } .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 5rem; margin-bottom: 4rem; } .portfolio-column-title { font-size:
+    0.9rem; font-weight: 400; margin: 0 0 1rem 0; } .portfolio-item {
+    margin-bottom: 2.5rem; } .portfolio-link { display: block; text-decoration:
+    none; transition: color 0.15s ease; } .portfolio-item-title { font-weight:
+    400; margin: 0 0 0.4rem 0; line-height: 1.4; text-decoration: underline; }
     .portfolio-item-desc { font-size: 0.85rem; font-weight: 400; line-height:
     1.45; } .portfolio-now { border-top: 1px solid #e6e6e6; padding-top: 2.5rem;
     margin-top: 5rem; } .portfolio-now-title { font-size: 0.95rem; font-weight:
@@ -46,55 +46,53 @@
 
       <!-- Building Column -->
       <div class="portfolio-column">
-        <h3 class="portfolio-column-title">Building</h3>
+        <h3 class="portfolio-column-title">Scratching itches</h3>
 
-        <div class="portfolio-item">
-          <h4 class="portfolio-item-title">Craft</h4>
-          <p class="portfolio-item-desc">Implementing interfaces and
-            interactions with AI-enhanced workflows.</p>
-        </div>
-
-        <div class="portfolio-item">
-          <a href="/tag/building/" class="portfolio-link">
-            <h4 class="portfolio-item-title">All building</h4>
-            <p class="portfolio-item-desc">Design systems, workflows, and tools
-              that bridge hardware and software.</p>
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Projects Column -->
-      <div class="portfolio-column">
-        <h3 class="portfolio-column-title">Projects</h3>
-
-        <div class="portfolio-item">
-          <a
-            href="https://bollywood-data-viz.com"
-            class="portfolio-link"
-            target="_blank"
-          >
-            <h4 class="portfolio-item-title">Bollywood Data Viz
-              <span class="portfolio-external">↗</span></h4>
-            <p class="portfolio-item-desc">Interactive visualizations analyzing
-              50+ years of industry trends, box office patterns, and cultural
-              evolution. Built with D3.js and cultural insight.</p>
-          </a>
-        </div>
-
-        <div class="portfolio-item">
-          <a href="/tag/projects/" class="portfolio-link">
-            <h4 class="portfolio-item-title">All projects</h4>
-            <p class="portfolio-item-desc">Data visualization, cultural
-              analysis, and cross-disciplinary explorations.</p>
-          </a>
-        </div>
+        {{#get
+          "posts" limit="5" filter="tag:scratching-itches"
+          as |building_posts|
+        }}
+          {{#foreach building_posts}}
+            <div class="portfolio-item">
+              <a href="{{url}}" class="portfolio-link">
+                <h4 class="portfolio-item-title">{{title}}</h4>
+                {{#if custom_excerpt}}
+                  <p class="portfolio-item-desc">{{custom_excerpt}}</p>
+                {{else if excerpt}}
+                  <p class="portfolio-item-desc">{{excerpt words="25"}}</p>
+                {{/if}}
+              </a>
+            </div>
+          {{/foreach}}
+        {{/get}}
 
       </div>
 
-      <!-- Writing Column -->
       <div class="portfolio-column">
-        <h3 class="portfolio-column-title">Writing</h3>
+        <h3 class="portfolio-column-title">Professional</h3>
+
+        {{#get "posts" limit="5" filter="tag:professional" as |project_posts|}}
+          {{#foreach project_posts}}
+            <div class="portfolio-item">
+              <a href="{{url}}" class="portfolio-link">
+                <h4 class="portfolio-item-title">{{title}}
+                  {{#if url}}
+                    <span class="portfolio-external">↗</span>
+                  {{/if}}
+                </h4>
+                {{#if custom_excerpt}}
+                  <p class="portfolio-item-desc">{{custom_excerpt}}</p>
+                {{else if excerpt}}
+                  <p class="portfolio-item-desc">{{excerpt words="25"}}</p>
+                {{/if}}
+              </a>
+            </div>
+          {{/foreach}}
+        {{/get}}
+      </div>
+
+      <div class="portfolio-column">
+        <h3 class="portfolio-column-title">Imbuing India</h3>
 
         <div class="portfolio-item">
           <a
@@ -102,37 +100,87 @@
             class="portfolio-link"
             target="_blank"
           >
-            <h4 class="portfolio-item-title">Indian Art Newsletter
+            <h4 class="portfolio-item-title">Kuch Hai: Art from the South Asian
+              Subcontinent
               <span class="portfolio-external">↗</span></h4>
-            <p class="portfolio-item-desc">Weekly curation of contemporary
-              Indian artists, traditional techniques, and cultural movements.
-              2000+ subscribers.</p>
+            <p class="portfolio-item-desc">Every week, one piece of art with
+              visuals, attribution, and materials used. Intentional
+              informational blank spaces so there is room for your raw
+              interpretation as a viewer.
+            </p>
           </a>
         </div>
 
+        {{#get "posts" limit="5" filter="tag:imbuing-india" as |project_posts|}}
+          {{#foreach project_posts}}
+            <div class="portfolio-item">
+              <a href="{{url}}" class="portfolio-link">
+                <h4 class="portfolio-item-title">{{title}}
+                  {{#if url}}
+                    <span class="portfolio-external">↗</span>
+                  {{/if}}
+                </h4>
+                {{#if custom_excerpt}}
+                  <p class="portfolio-item-desc">{{custom_excerpt}}</p>
+                {{else if excerpt}}
+                  <p class="portfolio-item-desc">{{excerpt words="25"}}</p>
+                {{/if}}
+              </a>
+            </div>
+          {{/foreach}}
+        {{/get}}
+
+      </div>
+
+      <!-- Writing Column -->
+      <div class="portfolio-column">
+        <h3 class="portfolio-column-title">Finding the signal</h3>
+
+        {{#get
+          "posts" limit="5" filter="tag:finding-the-signal"
+          as |writing_posts|
+        }}
+          {{#foreach writing_posts}}
+            <div class="portfolio-item">
+              <a href="{{url}}" class="portfolio-link">
+                <h4 class="portfolio-item-title">{{title}}</h4>
+                {{#if custom_excerpt}}
+                  <p class="portfolio-item-desc">{{custom_excerpt}}</p>
+                {{else if excerpt}}
+                  <p class="portfolio-item-desc">{{excerpt words="25"}}</p>
+                {{/if}}
+              </a>
+            </div>
+          {{/foreach}}
+        {{/get}}
         <div class="portfolio-item">
+          <a
+            href="https://kuchhaikuch.substack.com"
+            class="portfolio-link"
+            target="_blank"
+          >
+            <h4 class="portfolio-item-title">Kuch Hai: Art from the South Asian
+              Subcontinent
+              <span class="portfolio-external">↗</span></h4>
+            <p class="portfolio-item-desc">Every week, one piece of art with
+              visuals, attribution, and materials used. Intentional
+              informational blank spaces so there is room for your raw
+              interpretation as a viewer.
+            </p>
+          </a>
+        </div>
+
+        {{! <div class="portfolio-item">
           <a href="/tag/writing/" class="portfolio-link">
             <h4 class="portfolio-item-title">All writing</h4>
             <p class="portfolio-item-desc">Thoughts on design, climate tech,
               cultural analysis, and the intersection of technology and
               humanity.</p>
           </a>
-        </div>
+        </div> }}
 
       </div>
     </div>
-
-    <!-- Now Section -->
-    {{! <div class="portfolio-now">
-      <h3 class="portfolio-now-title">Now</h3>
-      <div class="portfolio-now-text">
-        Leading digital product design for climate tech hardware. Exploring AI
-        integration in design workflows while building systems that work across
-        software and manufacturing. Based in Philadelphia with two kids who
-        teach me systems thinking daily. Currently curating Indian art and
-        analyzing Bollywood through data visualization.
-      </div>
-    </div> }}
   </div>
 
 </main>

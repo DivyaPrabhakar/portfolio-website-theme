@@ -1,9 +1,7 @@
 /* Force sans-serif fonts */
-
 .site-main {
-  padding: 10rem 0;
+  padding: 8rem 0;
 }
-
 .portfolio-hero,
 .portfolio-content,
 .portfolio-grid,
@@ -23,13 +21,11 @@
   text-align: left;
   font-size: 1.5rem;
 }
-
 .portfolio-hero,
 .portfolio-item,
 .portfolio-link {
   color: #3a3a3a;
 }
-
 .portfolio-name,
 .portfolio-item-desc,
 .portfolio-item-title,
@@ -37,19 +33,16 @@
 .portfolio-item-title {
   font-size: 1rem;
 }
-
 .portfolio-external,
 .portfolio-column-title,
 .portfolio-role {
   color: #682523;
 }
-
 .portfolio-content,
 .portfolio-tagline,
 .portfolio-hero {
-  max-width: 900px;
+  max-width: 1200px;
 }
-
 .portfolio-name {
   font-weight: 400;
   margin: 0 0 1.5rem 0;
@@ -66,14 +59,14 @@
 }
 .portfolio-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 5rem;
   margin-bottom: 4rem;
 }
 .portfolio-column-title {
   font-size: 0.9rem;
   font-weight: 400;
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 1rem 0;
 }
 .portfolio-item {
   margin-bottom: 2.5rem;
