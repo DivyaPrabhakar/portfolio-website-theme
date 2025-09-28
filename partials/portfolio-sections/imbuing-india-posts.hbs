@@ -1,0 +1,28 @@
+      <div class="portfolio-column">
+        <h3 class="portfolio-column-title">Imbuing India</h3>
+
+        {{#get "posts" limit="5" filter="tag:imbuing-india" as |project_posts|}}
+          {{#foreach project_posts}}
+            <div class="portfolio-item">
+              <a href="{{url}}" class="portfolio-link">
+                <h4 class="portfolio-item-title">{{title}}
+                  {{#if url}}
+                    <span class="portfolio-external">↗</span>
+                  {{/if}}
+                </h4>
+                {{#if custom_excerpt}}
+                  <p class="portfolio-item-desc">{{custom_excerpt}}</p>
+                {{else if excerpt}}
+                  <p class="portfolio-item-desc">{{excerpt words="25"}}</p>
+                {{/if}}
+              </a>
+            </div>
+          {{/foreach}}
+        {{/get}}
+        
+        {{> "external-links" type="kuch-hai"}}
+
+        
+
+      </div>
+

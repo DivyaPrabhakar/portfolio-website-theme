@@ -9,11 +9,6 @@
                         {{date published_at format="DD MMM YYYY"}}
                     </time>
                 </span>
-                {{#if reading_time}}
-                    <span class="single-meta-item single-meta-length">
-                        {{reading_time}}
-                    </span>
-                {{/if}}
                 {{#primary_tag}}
                     <span class="single-meta-item single-meta-tag">
                         <a class="post-tag post-tag-{{slug}}" href="{{url}}">
@@ -70,23 +65,6 @@
                 </a>
             </div>
         {{/prev_post}}
-        </div>
-
-        <div class="single-footer-middle">
-        {{#if @custom.show_author}}
-            <div class="single-footer-top">
-                <h3 class="single-footer-title">Published by:</h3>
-                <div class="author-list">
-                    {{#foreach authors}}
-                    <div class="author-image-placeholder u-placeholder square">
-                        <a href="{{url}}" title="{{name}}">
-                            <img class="author-image u-object-fit" src="{{img_url profile_image size="xs"}}" alt="{{name}}" loading="lazy">
-                        </a>
-                    </div>
-                    {{/foreach}}
-                </div>
-            </div>
-        {{/if}}
         </div>
 
         <div class="single-footer-right">
