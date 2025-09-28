@@ -24,7 +24,7 @@
 .portfolio-hero,
 .portfolio-item,
 .portfolio-link {
-  color: #3a3a3a;
+  color: var(--link-color);
 }
 .portfolio-name,
 .portfolio-item-desc,
@@ -36,7 +36,7 @@
 .portfolio-external,
 .portfolio-column-title,
 .portfolio-role {
-  color: #682523;
+  color: var(--accent-color);
 }
 .portfolio-content,
 .portfolio-tagline,

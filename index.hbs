@@ -1,32 +1,117 @@
 <main class="site-main">
   <style>
-    /* Force sans-serif fonts */ .site-main { padding: 8rem 0; }
-    .portfolio-hero, .portfolio-content, .portfolio-grid, .portfolio-name,
-    .portfolio-tagline, .portfolio-column-title, .portfolio-item-title,
-    .portfolio-item-desc, .portfolio-now-title, .portfolio-now-text {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
-    Arial, sans-serif; } .portfolio-hero { margin: 0 auto 4rem auto; padding: 0
-    20px; text-align: left; font-size: 1.5rem; } .portfolio-hero,
-    .portfolio-item, .portfolio-link { color: #3a3a3a; } .portfolio-name,
-    .portfolio-item-desc, .portfolio-item-title, .portfolio-tagline,
-    .portfolio-item-title { font-size: 1rem; } .portfolio-external,
-    .portfolio-column-title, .portfolio-role { color: #682523; }
-    .portfolio-content, .portfolio-tagline, .portfolio-hero { max-width: 1200px;
-    } .portfolio-name { font-weight: 400; margin: 0 0 1.5rem 0; line-height:
-    1.2; } .portfolio-tagline { font-weight: 400; line-height: 1.6;
-    margin-bottom: 4rem; } .portfolio-content { margin: 0 auto; padding: 0 20px;
-    } .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 5rem; margin-bottom: 4rem; } .portfolio-column-title { font-size:
-    0.9rem; font-weight: 400; margin: 0 0 1rem 0; } .portfolio-item {
-    margin-bottom: 2.5rem; } .portfolio-link { display: block; text-decoration:
-    none; transition: color 0.15s ease; } .portfolio-item-title { font-weight:
-    400; margin: 0 0 0.4rem 0; line-height: 1.4; text-decoration: underline; }
-    .portfolio-item-desc { font-size: 0.85rem; font-weight: 400; line-height:
-    1.45; } .portfolio-now { border-top: 1px solid #e6e6e6; padding-top: 2.5rem;
-    margin-top: 5rem; } .portfolio-now-title { font-size: 0.95rem; font-weight:
-    400; margin: 0 0 1.5rem 0; } .portfolio-now-text { font-size: 0.9rem;
-    font-weight: 400; line-height: 1.6; } @media (max-width: 768px) {
-    .portfolio-grid { grid-template-columns: 1fr; gap: 3rem; } }
+/* Force sans-serif fonts */
+/* Force sans-serif fonts */
+.site-main {
+  padding: 8rem 0;
+}
+.portfolio-hero,
+.portfolio-content,
+.portfolio-grid,
+.portfolio-name,
+.portfolio-tagline,
+.portfolio-column-title,
+.portfolio-item-title,
+.portfolio-item-desc,
+.portfolio-now-title,
+.portfolio-now-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+}
+.portfolio-hero {
+  margin: 0 auto 4rem auto;
+  padding: 0 20px;
+  text-align: left;
+  font-size: 1.5rem;
+}
+.portfolio-hero,
+.portfolio-item,
+.portfolio-link {
+  color: var(--link-color);
+}
+.portfolio-name,
+.portfolio-item-desc,
+.portfolio-item-title,
+.portfolio-tagline,
+.portfolio-item-title {
+  font-size: 1rem;
+}
+.portfolio-external,
+.portfolio-column-title,
+.portfolio-role {
+  color: var(--accent-color);
+}
+.portfolio-content,
+.portfolio-tagline,
+.portfolio-hero {
+  max-width: 1200px;
+}
+.portfolio-name {
+  font-weight: 400;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+.portfolio-tagline {
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 4rem;
+}
+.portfolio-content {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5rem;
+  margin-bottom: 4rem;
+}
+.portfolio-column-title {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+}
+.portfolio-item {
+  margin-bottom: 2.5rem;
+}
+.portfolio-link {
+  display: block;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.portfolio-item-title {
+  font-weight: 400;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.4;
+  text-decoration: underline;
+  color: var(--link-color);
+}
+.portfolio-item-desc {
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+.portfolio-now {
+  border-top: 1px solid #e6e6e6;
+  padding-top: 2.5rem;
+  margin-top: 5rem;
+}
+.portfolio-now-title {
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin: 0 0 1.5rem 0;
+}
+.portfolio-now-text {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
   </style>
 
   <div class="portfolio-hero">
