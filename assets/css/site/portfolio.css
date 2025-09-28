@@ -24,7 +24,7 @@
 .portfolio-hero,
 .portfolio-item,
 .portfolio-link {
-  color: var(--link-color);
+  color: var(--accent-color);
 }
 .portfolio-name,
 .portfolio-item-desc,

@@ -1,9 +1,17 @@
 <main class="site-main">
   <style>
-/* Force sans-serif fonts */
-/* Force sans-serif fonts */
+    :root {
+      --accent-color: #A6553C;
+      --bg-color: #f8f6f4;
+      --primary-text-color: #2a2a2a;
+    }
 .site-main {
   padding: 8rem 0;
+  color: var(--primary-text-color); 
+}
+
+.portfolio-item-desc {
+    color: var(--primary-text-color); 
 }
 .portfolio-hero,
 .portfolio-content,
@@ -24,11 +32,11 @@
   text-align: left;
   font-size: 1.5rem;
 }
-.portfolio-hero,
-.portfolio-item,
-.portfolio-link {
-  color: var(--link-color);
+.portfolio-role,
+.portfolio-item-title {
+  color: var(--accent-color);
 }
+
 .portfolio-name,
 .portfolio-item-desc,
 .portfolio-item-title,
@@ -36,11 +44,7 @@
 .portfolio-item-title {
   font-size: 1rem;
 }
-.portfolio-external,
-.portfolio-column-title,
-.portfolio-role {
-  color: var(--accent-color);
-}
+
 .portfolio-content,
 .portfolio-tagline,
 .portfolio-hero {
@@ -84,7 +88,6 @@
   margin: 0 0 0.4rem 0;
   line-height: 1.4;
   text-decoration: underline;
-  color: var(--link-color);
 }
 .portfolio-item-desc {
   font-size: 0.85rem;

@@ -1,13 +1,13 @@
+@import "general/basics.css";
+@import "site/portfolio.css";
 @import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
 @import "general/fonts.css";
-@import "general/basics.css";
 @import "general/button.css";
 @import "general/form.css";
 @import "general/icons.css";
 @import "site/layout.css";
 @import "site/header.css";
 @import "site/cover.css";
-@import "site/portfolio.css"; /* Add this line */
 @import "blog/feed.css";
 @import "blog/featured.css";
 @import "blog/pagination.css";

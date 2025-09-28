@@ -1,6 +1,5 @@
 :root {
   --brand-color: var(--ghost-accent-color, #ff572f);
-  --primary-text-color: #2a2a2a;
   --secondary-text-color: #999;
   --white-color: #fff;
   --lighter-gray-color: #f6f6f6;
@@ -31,9 +30,6 @@
   --navbar-height: 80px;
   --content-font-size: 1.7rem;
   --header-spacing: 60px;
-  --bg-color: #f8f6f4;
-  --accent-color: #c4704a;
-  --link-color: #e67e22;
 }
 
 @media (max-width: 767px) {
@@ -48,7 +44,7 @@ body {
 }
 
 a {
-  color: var(--link-color);
+  color: var(--accent-color);
 }
 
 h1,
