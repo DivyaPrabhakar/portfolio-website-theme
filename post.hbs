@@ -17,3 +17,482 @@
 
 </main>
 
+<!-- AUTO TABLE OF CONTENTS -->
+<div id="auto-toc-container" class="auto-toc-sidebar">
+  <div class="toc-header">
+    <div class="toc-title">Contents</div>
+    <button class="toc-toggle" id="toc-toggle">
+      <span class="toc-toggle-icon">×</span>
+    </button>
+  </div>
+  <nav id="auto-toc-nav"></nav>
+</div>
+
+<!-- Mobile backdrop -->
+<div class="toc-backdrop" id="toc-backdrop"></div>
+
+<style>
+/* Auto Table of Contents Styles */
+.auto-toc-sidebar {
+  position: fixed;
+  top: 20%;
+  left: 20px;
+  width: 280px;
+  max-height: 65vh;
+  overflow-y: auto;
+  background: rgba(248, 246, 244, 0.98);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(166, 85, 60, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  z-index: 999;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateX(-30px);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.auto-toc-sidebar.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(166, 85, 60, 0.2);
+}
+
+.toc-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #A6553C;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.toc-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #A6553C;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.toc-toggle:hover {
+  background: rgba(166, 85, 60, 0.1);
+}
+
+#auto-toc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#auto-toc-nav a {
+  display: block;
+  color: #2a2a2a;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+#auto-toc-nav a:hover {
+  color: #A6553C;
+  background: rgba(166, 85, 60, 0.06);
+  border-left-color: #A6553C;
+  transform: translateX(2px);
+}
+
+#auto-toc-nav a.active {
+  color: #A6553C;
+  background: rgba(166, 85, 60, 0.1);
+  border-left-color: #A6553C;
+  font-weight: 500;
+}
+
+/* Hierarchy styling for different heading levels */
+#auto-toc-nav a.h2 { padding-left: 12px; }
+#auto-toc-nav a.h3 { padding-left: 24px; font-size: 13px; }
+#auto-toc-nav a.h4 { padding-left: 36px; font-size: 12px; }
+#auto-toc-nav a.h5 { padding-left: 48px; font-size: 12px; }
+#auto-toc-nav a.h6 { padding-left: 60px; font-size: 11px; }
+
+/* Tablet Styles */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .auto-toc-sidebar {
+    width: 240px;
+    left: 10px;
+    top: 15%;
+  }
+  
+  #auto-toc-nav a {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  
+  #auto-toc-nav a.h3 { font-size: 12px; }
+  #auto-toc-nav a.h4, #auto-toc-nav a.h5, #auto-toc-nav a.h6 { font-size: 11px; }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .auto-toc-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    bottom: 0;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    max-height: none;
+    border-radius: 0 16px 16px 0;
+    transform: none;
+    z-index: 1000;
+    padding: 60px 20px 20px 20px;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+  }
+  
+  .auto-toc-sidebar.show {
+    left: 0;
+  }
+  
+  .auto-toc-sidebar.mobile-hidden {
+    left: -100%;
+  }
+  
+  .toc-toggle {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+  
+  .toc-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px;
+    background: rgba(248, 246, 244, 0.98);
+    border-bottom: 1px solid rgba(166, 85, 60, 0.2);
+    border-radius: 0 16px 0 0;
+  }
+  
+  .toc-title {
+    font-size: 16px;
+  }
+  
+  #auto-toc-nav {
+    padding-top: 16px;
+  }
+  
+  #auto-toc-nav a {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 12px;
+    margin-bottom: 4px;
+  }
+  
+  #auto-toc-nav a.h2 { padding-left: 16px; }
+  #auto-toc-nav a.h3 { padding-left: 32px; font-size: 13px; }
+  #auto-toc-nav a.h4 { padding-left: 48px; font-size: 12px; }
+  #auto-toc-nav a.h5 { padding-left: 64px; font-size: 12px; }
+  #auto-toc-nav a.h6 { padding-left: 80px; font-size: 11px; }
+}
+
+/* Mobile backdrop */
+@media (max-width: 768px) {
+  .toc-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .toc-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Show TOC button on mobile */
+@media (max-width: 768px) {
+  .mobile-toc-trigger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #A6553C;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(166, 85, 60, 0.3);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  .mobile-toc-trigger:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(166, 85, 60, 0.4);
+  }
+  
+  .mobile-toc-trigger.hidden {
+    display: none;
+  }
+  
+  .mobile-toc-trigger-icon {
+    font-size: 16px;
+    line-height: 1;
+  }
+  
+  .mobile-toc-trigger-text {
+    font-size: 14px;
+    line-height: 1;
+  }
+}
+</style>
+
+<!-- Mobile TOC Trigger Button -->
+<button class="mobile-toc-trigger" id="mobile-toc-trigger">
+  <span class="mobile-toc-trigger-icon">≡</span>
+  <span class="mobile-toc-trigger-text">Table of Contents</span>
+</button>
+
+<script>
+(function() {
+  'use strict';
+  
+  let validHeadings = [];
+  let isUserScrolling = true;
+  let scrollTimeout;
+  
+  function initAutoTOC() {
+    const tocContainer = document.getElementById('auto-toc-container');
+    const tocNav = document.getElementById('auto-toc-nav');
+    const tocToggle = document.getElementById('toc-toggle');
+    const mobileTrigger = document.getElementById('mobile-toc-trigger');
+    const backdrop = document.getElementById('toc-backdrop');
+    
+    if (!tocContainer || !tocNav) return;
+    
+    // Find content
+    const contentSelectors = [
+      '.gh-content',
+      '.post-content', 
+      'main article',
+      '.content',
+      'article .post-body',
+      '.kg-width-wide',
+      '.kg-width-full'
+    ];
+    
+    let content = null;
+    for (const selector of contentSelectors) {
+      content = document.querySelector(selector);
+      if (content) break;
+    }
+    
+    if (!content) {
+      content = document.querySelector('article') || document.querySelector('main');
+    }
+    
+    if (!content) {
+      console.log('Auto TOC: Content area not found');
+      return;
+    }
+    
+    // Find valid headings
+    const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    validHeadings = Array.from(headings).filter(heading => {
+      const text = heading.textContent.trim();
+      return text && text.length > 0;
+    });
+    
+    if (validHeadings.length === 0) {
+      tocContainer.style.display = 'none';
+      mobileTrigger.style.display = 'none';
+      return;
+    }
+    
+    // Generate IDs
+    const usedIds = new Set();
+    validHeadings.forEach((heading, index) => {
+      if (!heading.id) {
+        let baseId = heading.textContent
+          .trim()
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .replace(/^-|-$/g, '');
+        
+        if (!baseId) baseId = 'heading';
+        
+        let finalId = baseId;
+        let counter = 1;
+        while (usedIds.has(finalId)) {
+          finalId = `${baseId}-${counter}`;
+          counter++;
+        }
+        
+        heading.id = finalId;
+        usedIds.add(finalId);
+      } else {
+        usedIds.add(heading.id);
+      }
+    });
+    
+    // Build TOC
+    let tocHTML = '';
+    validHeadings.forEach(heading => {
+      const level = heading.tagName.toLowerCase();
+      const text = heading.textContent.trim();
+      const id = heading.id;
+      
+      if (text && text.length > 0) {
+        tocHTML += `<a href="#${id}" class="toc-link ${level}" data-target="${id}">${text}</a>`;
+      }
+    });
+    
+    tocNav.innerHTML = tocHTML;
+    
+    // Show TOC
+    setTimeout(() => {
+      tocContainer.classList.add('show');
+    }, 200);
+    
+    // Click handlers
+    tocNav.addEventListener('click', function(e) {
+      const link = e.target.closest('.toc-link');
+      if (link) {
+        e.preventDefault();
+        isUserScrolling = false;
+        
+        const targetId = link.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          // Simple, reliable scroll
+          const targetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 100;
+          
+          window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+          });
+          
+          // Update active immediately
+          const tocLinks = tocNav.querySelectorAll('.toc-link');
+          tocLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          
+          // Hide mobile TOC after click
+          if (window.innerWidth <= 768) {
+            tocContainer.classList.add('mobile-hidden');
+            if (backdrop) backdrop.classList.remove('show');
+          }
+          
+          // Re-enable scroll spy after scroll completes
+          setTimeout(() => {
+            isUserScrolling = true;
+          }, 1000);
+        }
+      }
+    });
+    
+    // Mobile toggle handlers
+    if (tocToggle) {
+      tocToggle.addEventListener('click', function() {
+        tocContainer.classList.add('mobile-hidden');
+        if (backdrop) backdrop.classList.remove('show');
+      });
+    }
+    
+    if (mobileTrigger) {
+      mobileTrigger.addEventListener('click', function() {
+        tocContainer.classList.remove('mobile-hidden');
+        if (backdrop) backdrop.classList.add('show');
+      });
+    }
+    
+    if (backdrop) {
+      backdrop.addEventListener('click', function() {
+        tocContainer.classList.add('mobile-hidden');
+        backdrop.classList.remove('show');
+      });
+    }
+    
+    // Simple scroll spy
+    function updateActiveLink() {
+      if (!isUserScrolling) return;
+      
+      let activeHeading = null;
+      const scrollPos = window.scrollY + 150;
+      
+      // Find the heading that's currently in view
+      for (let i = validHeadings.length - 1; i >= 0; i--) {
+        const heading = validHeadings[i];
+        const headingTop = heading.offsetTop;
+        
+        if (scrollPos >= headingTop) {
+          activeHeading = heading;
+          break;
+        }
+      }
+      
+      // Update active states
+      const tocLinks = tocNav.querySelectorAll('.toc-link');
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (activeHeading && link.getAttribute('data-target') === activeHeading.id) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    // Throttled scroll handler
+    function handleScroll() {
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      scrollTimeout = setTimeout(updateActiveLink, 50);
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    setTimeout(updateActiveLink, 300);
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAutoTOC);
+  } else {
+    initAutoTOC();
+  }
+})();
+</script>
