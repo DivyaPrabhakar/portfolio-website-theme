@@ -1,9 +1,10 @@
 <main class="site-main">
   <style>
     :root {
-      --accent-color: #A6553C;
-      --bg-color: #f8f6f4;
+      --accent-color: #C9A68A;
+      --bg-color: #FBF9F7;
       --primary-text-color: #2a2a2a;
+      --link-color: #1e2a96;
     }
 .site-main {
   padding: 8rem 0;
@@ -32,26 +33,38 @@
   text-align: left;
   font-size: 1.5rem;
 }
+.portfolio-role {
+  font-weight: 400;;
+}
+
 .portfolio-role,
-.portfolio-item-title {
+ .portfolio-column-title {
   color: var(--accent-color);
+}
+
+.portfolio-item-title {
+  color: var(--link-color);
 }
 
 .portfolio-name,
 .portfolio-item-desc,
 .portfolio-item-title,
 .portfolio-tagline,
-.portfolio-item-title {
+.portfolio-item-title,
+.portfolio-column-title {
   font-size: 1rem;
+}
+
+.portfolio-name, .portfolio-column-title {
+  font-weight: 600;
 }
 
 .portfolio-content,
 .portfolio-tagline,
 .portfolio-hero {
-  max-width: 1200px;
+  max-width: 1400px;
 }
 .portfolio-name {
-  font-weight: 400;
   margin: 0 0 1.5rem 0;
   line-height: 1.2;
 }
@@ -62,17 +75,15 @@
 }
 .portfolio-content {
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
 }
 .portfolio-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 5rem;
   margin-bottom: 4rem;
 }
 .portfolio-column-title {
-  font-size: 0.9rem;
-  font-weight: 400;
   margin: 0 0 1rem 0;
 }
 .portfolio-item {
@@ -83,12 +94,18 @@
   text-decoration: none;
   transition: color 0.15s ease;
 }
+
 .portfolio-item-title {
   font-weight: 400;
   margin: 0 0 0.4rem 0;
   line-height: 1.4;
+  text-decoration: none;
+}
+
+.portfolio-item-title:hover {
   text-decoration: underline;
 }
+
 .portfolio-item-desc {
   font-size: 0.85rem;
   font-weight: 400;
@@ -122,17 +139,14 @@
       <em class="portfolio-role">Head of Digital Product Design at Form Energy</em>
     </h1>
     <div class="portfolio-tagline">
-      I design product ecosystems where digital meets physical. Design thinking
-      with engineering depth -- I see how decisions cascade through hardware,
-      software, and operations, seamlessly moving between strategy and
-      execution.
+      <i>Design leader who codes and ships—I'm a translator across engineering, product, 
+      and business teams. Learning new domains quickly by constantly asking why and how. </i>
     </div>
-  </div>
-
   <div class="portfolio-content">
     <div class="portfolio-grid">
 
       {{> "portfolio-sections/professional-posts"}}
+      {{> "portfolio-sections/building-in-public-posts"}}
       {{> "portfolio-sections/scratching-itches-posts"}}
       {{> "portfolio-sections/imbuing-india-posts"}}
       {{> "portfolio-sections/finding-signal-posts"}}

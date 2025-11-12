@@ -10,17 +10,13 @@
                     <span class="portfolio-external">↗</span>
                   {{/if}}
                 </h4>
-                {{#if custom_excerpt}}
-                  <p class="portfolio-item-desc">{{custom_excerpt}}</p>
-                {{else if excerpt}}
-                  <p class="portfolio-item-desc">{{excerpt words="25"}}</p>
-                {{/if}}
+                {{> "portfolio-sections/post-excerpt"}}
               </a>
             </div>
           {{/foreach}}
         {{/get}}
         
-        {{> "external-links" type="kuch-hai"}}
+        {{> "kuch-hai-external-link"}}
 
         
 
