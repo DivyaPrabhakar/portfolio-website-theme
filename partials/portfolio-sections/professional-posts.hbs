@@ -1,6 +1,7 @@
 <div class="portfolio-column">
   <h3 class="portfolio-column-title">Professional</h3>
 
+  {{> "linked-in-external-link"}}
   {{#get "posts" limit="5" filter="tag:professional" as |project_posts|}}
     {{#foreach project_posts}}
       <div class="portfolio-item">
