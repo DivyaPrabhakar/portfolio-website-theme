@@ -2,7 +2,29 @@ $(function () {
     'use strict';
     featured();
     pagination(false);
+    portfolioNav();
 });
+
+function portfolioNav() {
+    'use strict';
+    var navItems = document.querySelectorAll('.portfolio-nav-item');
+    var sections = document.querySelectorAll('.portfolio-section');
+    if (!navItems.length) return;
+
+    navItems.forEach(function (item) {
+        item.addEventListener('click', function (e) {
+            e.preventDefault();
+            var targetSection = this.getAttribute('data-section');
+
+            navItems.forEach(function (nav) { nav.classList.remove('active'); });
+            this.classList.add('active');
+
+            sections.forEach(function (section) { section.classList.remove('visible'); });
+            var target = document.getElementById('section-' + targetSection);
+            if (target) { target.classList.add('visible'); }
+        });
+    });
+}
 
 function featured() {
     'use strict';

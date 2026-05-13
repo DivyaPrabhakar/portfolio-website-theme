@@ -9,10 +9,7 @@
 
 .single-meta {
   margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: 800;
   color: var(--secondary-text-color);
-  text-transform: uppercase;
 }
 
 .single-meta-item + .single-meta-item::before {
@@ -27,9 +24,6 @@
 
 .single-title {
   margin-bottom: 0;
-  font-size: 4rem;
-  line-height: 1.2;
-  letter-spacing: -0.1rem;
   word-break: break-word;
 }
 
@@ -42,7 +36,6 @@
 
 .single-excerpt {
   margin-top: 2rem;
-  font-size: 1.8rem;
   word-break: break-word;
   font-style: italic;
   color: var(--accent-color);
@@ -71,13 +64,6 @@
 
 .single-cta-button {
   margin-bottom: 1rem;
-  font-weight: 800 !important;
-}
-
-.single-cta-footer {
-  font-size: 1.4rem;
-  font-weight: 400 !important;
-  letter-spacing: -0.02rem;
 }
 
 .single-footer {
@@ -109,7 +95,6 @@
 
 .single-footer-title {
   margin-bottom: 1rem;
-  font-size: 1.8rem;
 }
 
 .single-footer-bottom {
@@ -119,14 +104,6 @@
 @media (max-width: 767px) {
   .single-header {
     margin-bottom: 3rem;
-  }
-
-  .single-title {
-    font-size: 2.6rem;
-  }
-
-  .single-excerpt {
-    font-size: 1.7rem;
   }
 
   .single-media {

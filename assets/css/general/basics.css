@@ -22,13 +22,13 @@
   --instagram-color: #000000;
   --rss-color: #f26522;
   --animation-base: ease-in-out;
-  --font-sans: Mulish, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
-    Arial, sans-serif;
-  --font-serif: Lora, Times, serif;
-  --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
-    monospace;
+  --font-sans:
+    "DM Sans", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif;
+  --font-serif: "Cormorant Garant", Times, serif;
+  --font-mono:
+    Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
   --navbar-height: 80px;
-  --content-font-size: 1.7rem;
   --header-spacing: 60px;
 }
 
@@ -39,6 +39,7 @@
 }
 
 body {
+  font-family: var(--font-sans);
   color: var(--primary-text-color);
   background-color: var(--bg-color);
 }
@@ -48,11 +49,48 @@ a {
 }
 
 h1,
+.site-title {
+  font-family: var(--font-serif);
+  color: var(--darker-gray-color);
+}
+
 h2,
-h3,
+h3 {
+  font-family: var(--font-sans);
+  color: var(--darker-gray-color);
+}
+
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-family: var(--font-sans);
   color: var(--darker-gray-color);
+}
+
+p,
+nav,
+a,
+li {
+  font-family: var(--font-sans);
+}
+
+.label,
+.meta,
+[class*="label"],
+[class*="meta"] {
+  font-family: var(--font-sans);
+  color: #888;
+}
+
+.role-title,
+.site-description,
+em {
+  font-family: var(--font-sans);
+  font-style: italic;
+}
+
+.nav,
+.nav a,
+.site-nav {
+  font-family: var(--font-sans);
 }
