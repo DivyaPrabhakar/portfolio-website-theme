@@ -1,36 +1,44 @@
 /* CSS variables used across the portfolio */
 :root {
-  --accent-color: #c9a68a;
-  --bg-color: #fbf9f7;
-  --primary-text-color: #2a2a2a;
+  --accent-color: #c9a882;
+  --bg-color: #fcfcfc;
   --link-color: #1c30e7;
-  --body-text: 2rem;
+  --body-text-size: 1.8rem;
+  --navigation-text-size: 1.6rem;
+  --nav-hover-text-color: #9e9189;
+  --body-text-color: #2c2825;
 }
 
 /* ── Page wrapper ── */
-.site-main {
-  padding: 8rem 0;
-}
 
 /* ── Hero ── */
 .portfolio-hero {
   display: flex;
   gap: 2rem;
+  align-items: flex-start;
   max-width: 1200px;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 10rem auto;
   text-align: left;
-  color: var(--accent-color);
 }
 
 .portfolio-name {
-  font-family: "Cormorant Garant", serif;
+  font-family: "Cormorant Garamond", Times, serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 40px;
+  letter-spacing: -0.02em;
 }
 
-/* Explicit DM Sans — overrides Cormorant inherited from parent .portfolio-name */
+.portfolio-tagline {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--body-text-size);
+  color: hsl(from color h s l);
+}
+
 .portfolio-role {
-  font-family: "DM Sans", sans-serif;
-  font-style: italic;
-  color: inherit;
+  color: var(--accent-color);
 }
 
 /* ── Two-column layout (sidebar + content) ── */
@@ -54,14 +62,16 @@
 
 /* ── Sidebar ── */
 .portfolio-sidebar {
-  width: 200px;
+  width: 30rem;
   flex-shrink: 0;
+  background-color: #f8f6f0;
+  padding: 2rem;
   position: sticky;
-  top: 2rem;
 }
 
 .portfolio-sidebar-label {
   margin: 0 0 0.75rem 0;
+  font-size: var(--navigation-text-size);
 }
 
 .portfolio-nav-list {
@@ -72,6 +82,8 @@
 
 .portfolio-nav-list li {
   margin: 0;
+  font-size: var(--navigation-text-size);
+  color: #7a7068;
 }
 
 .portfolio-nav-item {
@@ -80,18 +92,22 @@
   text-align: left;
   background: none;
   border: none;
-  color: #aaa;
   cursor: pointer;
   transition: color 0.15s ease;
   text-decoration: none;
 }
 
 .portfolio-nav-item:hover {
-  color: var(--primary-text-color);
+  color: var(--accent-color);
+  font-style: italic;
+  cursor: pointer !important;
 }
 
 .portfolio-nav-item.active {
-  color: var(--primary-text-color);
+  color: #720514;
+  font-weight: bold;
+  font-style: italic;
+  cursor: default !important;
 }
 
 .portfolio-see-all {
@@ -118,28 +134,12 @@
 }
 
 .portfolio-column-title {
-  color: var(--accent-color);
   margin: 0 0 1rem 0;
 }
 
-.portfolio-external {
-  color: var(--accent-color);
-}
-
-.external-link {
+.portfolio-link {
   text-decoration: underline;
   color: var(--link-color);
-}
-
-.portfolio-item {
-  margin-bottom: 2.5rem;
-  color: var(--accent-color);
-}
-
-.portfolio-link {
-  display: block;
-  text-decoration: none;
-  color: var(--accent-color);
   transition: color 0.15s ease;
 }
 
@@ -147,9 +147,6 @@
   margin: 0 0 0.4rem 0;
 
   text-decoration: underline;
-}
-
-.portfolio-item-desc {
 }
 
 .portfolio-now {
@@ -160,9 +157,6 @@
 
 .portfolio-now-title {
   margin: 0 0 1.5rem 0;
-}
-
-.portfolio-now-text {
 }
 
 /* ── Post items (shared across all sections) ── */
@@ -215,10 +209,6 @@
   margin-top: 0.5rem;
 }
 
-.portfolio-tagline {
-  font-size: var(--body-text);
-}
-
 .portfolio-tag-pill {
   background: #f0f0f0;
   border-radius: 100px;
@@ -240,7 +230,7 @@
 /* ── Section label (meta tag above post title in "See everything") ── */
 .portfolio-section-label {
   display: block;
-  color: #888;
+  color: var(--body-text-color);
   margin-bottom: 0.2rem;
 }
 
@@ -267,12 +257,9 @@
 
 .portfolio-noticing-header {
   margin: 0 0 0.5rem 0;
-
-  color: var(--primary-text-color);
 }
 
 .portfolio-noticing-body {
-  color: #666;
   margin: 0;
 }
 
@@ -305,11 +292,6 @@
     width: auto;
     background: #f5f5f5;
     border-radius: 100px;
-  }
-
-  .portfolio-nav-item.active {
-    background: var(--primary-text-color);
-    color: #fff;
   }
 
   .portfolio-see-all {

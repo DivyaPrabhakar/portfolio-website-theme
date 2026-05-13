@@ -1,3 +1,7 @@
+.gh-head {
+  background-color: var(--bg-color);
+}
+
 .gh-head-logo {
   font-family: "DM Sans", sans-serif;
 }

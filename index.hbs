@@ -2,19 +2,18 @@
 <main class="site-main">
 
   <div class="portfolio-hero">
-    <h1 class="portfolio-name">Divya Prabhakar
-    </h1>
+    <h1 class="portfolio-name">Divya Prabhakar</h1>
     <div class="portfolio-tagline">
       <p>I build experiences users trust, products compound in value, and
         user-centered design cultures that scale.
       </p>
-      <em class="portfolio-role">Currently: Head of Digital Product Design at
+      <p class="portfolio-role">Currently: Head of Digital Product Design at
         <a
-          class="external-link"
+          class="portfolio-link"
           href="https://www.formenergy.com"
           target="_blank"
           rel="noopener noreferrer"
-        >Form Energy</a></em>
+        >Form Energy</a></p>
 
     </div>
 
@@ -23,38 +22,43 @@
   <div class="portfolio-layout">
 
     <nav class="portfolio-sidebar">
-      <p class="portfolio-sidebar-label">What I am:</p>
+      <p class="portfolio-sidebar-label">What I am...</p>
       <ul class="portfolio-nav-list">
         <li><button
             class="portfolio-nav-item active"
-            data-section="thinking-about"
-          >Thinking about</button></li>
+            data-section="spending-my-days-on"
+          >Spending my days on</button></li>
         <li><button
             class="portfolio-nav-item"
-            data-section="coding"
-          >Coding</button></li>
+            data-section="spending-my-nights-on"
+          >Spending my nights on</button></li>
         <li><button class="portfolio-nav-item" data-section="proud-of">Proud of</button></li>
         <li><button
             class="portfolio-nav-item"
-            data-section="wearing"
-          >Wearing</button></li>
+            data-section="observing"
+          >Observing</button></li>
+        <li><button
+            class="portfolio-nav-item"
+            data-section="curating"
+          >Curating</button></li>
         <li><button
             class="portfolio-nav-item"
             data-section="organizing"
           >Organizing</button></li>
+        <li><button class="portfolio-nav-item" data-section="using-ai-for">Using
+            AI for</button></li>
         <li><button
             class="portfolio-nav-item"
-            data-section="continuing"
-          >Continuing</button></li>
-        <li><button
-            class="portfolio-nav-item"
-            data-section="noticing"
-          >Noticing</button></li>
+            data-section="not-using-ai-for"
+          >Not using AI for</button></li>
+        <li>
+          <button
+            class="portfolio-nav-item portfolio-see-all"
+            data-section="see-everything"
+          >See everything</button>
+        </li>
       </ul>
-      <button
-        class="portfolio-nav-item portfolio-see-all"
-        data-section="see-everything"
-      >See everything</button>
+
     </nav>
 
     <div class="portfolio-content-area">
@@ -114,6 +118,34 @@
               </div>
             {{/foreach}}
           </div>
+        {{/get}}
+      </div>
+
+      <div id="section-spending-my-nights-on" class="portfolio-section">
+        {{#get
+          "posts"
+          limit="20"
+          filter="tag:spending-nights-on"
+          order="published_at desc"
+          as |posts meta|
+        }}
+          {{#foreach posts}}
+            <div class="portfolio-post-item">
+              <span class="portfolio-post-date">{{date
+                  published_at
+                  format="MMM YYYY"
+                }}</span>
+              <a href="{{url}}" class="portfolio-post-link">
+                <h4 class="portfolio-post-title">{{title}}</h4>
+              </a>
+              <p class="portfolio-post-excerpt">{{excerpt words="10"}}</p>
+              <div class="portfolio-post-tags">
+                {{#foreach tags}}
+                  <span class="portfolio-tag-pill">{{name}}</span>
+                {{/foreach}}
+              </div>
+            </div>
+          {{/foreach}}
         {{/get}}
       </div>
 
