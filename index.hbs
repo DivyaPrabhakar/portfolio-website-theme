@@ -32,7 +32,6 @@
             class="portfolio-nav-item"
             data-section="spending-my-nights-on"
           >Spending my nights on</button></li>
-        <li><button class="portfolio-nav-item" data-section="proud-of">Proud of</button></li>
         <li><button
             class="portfolio-nav-item"
             data-section="observing"
@@ -63,11 +62,11 @@
 
     <div class="portfolio-content-area">
 
-      <div id="section-thinking-about" class="portfolio-section visible">
+      <div id="section-spending-my-days-on" class="portfolio-section visible">
         {{#get
           "posts"
           limit="20"
-          filter="tag:thinking-about"
+          filter="tag:spending-my-days-on"
           order="published_at desc"
           as |posts meta|
         }}
@@ -88,36 +87,6 @@
               </div>
             </div>
           {{/foreach}}
-        {{/get}}
-      </div>
-
-      <div id="section-coding" class="portfolio-section">
-        {{#get
-          "posts" limit="20" filter="tag:coding" order="published_at desc"
-          as |posts meta|
-        }}
-          <div class="portfolio-coding-grid">
-            {{#foreach posts}}
-              <div class="portfolio-coding-item">
-                {{#if feature_image}}
-                  <img
-                    src="{{img_url feature_image size="s"}}"
-                    alt="{{title}}"
-                    class="portfolio-coding-thumb"
-                  />
-                {{/if}}
-                <div class="portfolio-post-tags">
-                  {{#foreach tags}}
-                    <span class="portfolio-tag-pill">{{name}}</span>
-                  {{/foreach}}
-                </div>
-                <a href="{{url}}" class="portfolio-post-link">
-                  <h4 class="portfolio-post-title">{{title}}</h4>
-                </a>
-                <p class="portfolio-post-excerpt">{{excerpt words="10"}}</p>
-              </div>
-            {{/foreach}}
-          </div>
         {{/get}}
       </div>
 
@@ -125,7 +94,7 @@
         {{#get
           "posts"
           limit="20"
-          filter="tag:spending-nights-on"
+          filter="tag:spending-my-nights-on"
           order="published_at desc"
           as |posts meta|
         }}
@@ -149,41 +118,56 @@
         {{/get}}
       </div>
 
-      <div id="section-proud-of" class="portfolio-section">
+      <div id="section-observing" class="portfolio-section">
         {{#get
-          "posts" limit="20" filter="tag:proud-of" order="published_at desc"
+          "posts"
+          limit="20"
+          filter="tag:observing"
+          order="published_at desc"
           as |posts meta|
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              <span class="portfolio-post-date">{{date
+                  published_at
+                  format="MMM YYYY"
+                }}</span>
               <a href="{{url}}" class="portfolio-post-link">
                 <h4 class="portfolio-post-title">{{title}}</h4>
               </a>
               <p class="portfolio-post-excerpt">{{excerpt words="10"}}</p>
+              <div class="portfolio-post-tags">
+                {{#foreach tags}}
+                  <span class="portfolio-tag-pill">{{name}}</span>
+                {{/foreach}}
+              </div>
             </div>
           {{/foreach}}
         {{/get}}
       </div>
 
-      <div id="section-wearing" class="portfolio-section">
+      <div id="section-curating" class="portfolio-section">
         {{#get
-          "posts" limit="20" filter="tag:wearing" order="published_at desc"
+          "posts"
+          limit="20"
+          filter="tag:curating"
+          order="published_at desc"
           as |posts meta|
         }}
           {{#foreach posts}}
-            <div class="portfolio-post-item portfolio-post-item--with-thumb">
-              {{#if feature_image}}
-                <img
-                  src="{{img_url feature_image size="s"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-thumb"
-                />
-              {{/if}}
-              <div class="portfolio-post-text">
-                <a href="{{url}}" class="portfolio-post-link">
-                  <h4 class="portfolio-post-title">{{title}}</h4>
-                </a>
-                <p class="portfolio-post-excerpt">{{excerpt words="10"}}</p>
+            <div class="portfolio-post-item">
+              <span class="portfolio-post-date">{{date
+                  published_at
+                  format="MMM YYYY"
+                }}</span>
+              <a href="{{url}}" class="portfolio-post-link">
+                <h4 class="portfolio-post-title">{{title}}</h4>
+              </a>
+              <p class="portfolio-post-excerpt">{{excerpt words="10"}}</p>
+              <div class="portfolio-post-tags">
+                {{#foreach tags}}
+                  <span class="portfolio-tag-pill">{{name}}</span>
+                {{/foreach}}
               </div>
             </div>
           {{/foreach}}
@@ -192,11 +176,18 @@
 
       <div id="section-organizing" class="portfolio-section">
         {{#get
-          "posts" limit="20" filter="tag:organizing" order="published_at desc"
+          "posts"
+          limit="20"
+          filter="tag:organizing"
+          order="published_at desc"
           as |posts meta|
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              <span class="portfolio-post-date">{{date
+                  published_at
+                  format="MMM YYYY"
+                }}</span>
               <a href="{{url}}" class="portfolio-post-link">
                 <h4 class="portfolio-post-title">{{title}}</h4>
               </a>
@@ -211,37 +202,57 @@
         {{/get}}
       </div>
 
-      <div id="section-continuing" class="portfolio-section">
+      <div id="section-using-ai-for" class="portfolio-section">
         {{#get
-          "posts" limit="20" filter="tag:continuing" order="published_at desc"
+          "posts"
+          limit="20"
+          filter="tag:using-ai-for"
+          order="published_at desc"
           as |posts meta|
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              <span class="portfolio-post-date">{{date
+                  published_at
+                  format="MMM YYYY"
+                }}</span>
               <a href="{{url}}" class="portfolio-post-link">
                 <h4 class="portfolio-post-title">{{title}}</h4>
               </a>
-              {{#if custom_excerpt}}
-                <p class="portfolio-post-excerpt">{{custom_excerpt}}</p>
-              {{else}}
-                <p class="portfolio-post-excerpt">{{excerpt words="10"}}</p>
-              {{/if}}
+              <p class="portfolio-post-excerpt">{{excerpt words="10"}}</p>
+              <div class="portfolio-post-tags">
+                {{#foreach tags}}
+                  <span class="portfolio-tag-pill">{{name}}</span>
+                {{/foreach}}
+              </div>
             </div>
           {{/foreach}}
         {{/get}}
       </div>
 
-      <div id="section-noticing" class="portfolio-section">
+      <div id="section-not-using-ai-for" class="portfolio-section">
         {{#get
-          "posts" limit="20" filter="tag:noticing" order="published_at desc"
+          "posts"
+          limit="20"
+          filter="tag:not-using-ai-for"
+          order="published_at desc"
           as |posts meta|
         }}
           {{#foreach posts}}
-            <div class="portfolio-noticing-item">
+            <div class="portfolio-post-item">
+              <span class="portfolio-post-date">{{date
+                  published_at
+                  format="MMM YYYY"
+                }}</span>
               <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-noticing-header">{{title}}</h4>
+                <h4 class="portfolio-post-title">{{title}}</h4>
               </a>
-              <p class="portfolio-noticing-body">{{excerpt words="10"}}</p>
+              <p class="portfolio-post-excerpt">{{excerpt words="10"}}</p>
+              <div class="portfolio-post-tags">
+                {{#foreach tags}}
+                  <span class="portfolio-tag-pill">{{name}}</span>
+                {{/foreach}}
+              </div>
             </div>
           {{/foreach}}
         {{/get}}
