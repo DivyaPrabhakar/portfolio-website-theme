@@ -1,5 +1,6 @@
 .gh-head {
   background-color: var(--bg-color);
+  height: 2rem;
 }
 
 .gh-head-logo {
