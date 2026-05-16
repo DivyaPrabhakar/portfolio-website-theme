@@ -72,6 +72,13 @@
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              {{#if feature_image}}
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  class="portfolio-post-feature-image"
+                />
+              {{/if}}
               <span class="portfolio-post-date">{{date
                   published_at
                   format="MMM YYYY"
@@ -100,6 +107,13 @@
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              {{#if feature_image}}
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  class="portfolio-post-feature-image"
+                />
+              {{/if}}
               <span class="portfolio-post-date">{{date
                   published_at
                   format="MMM YYYY"
@@ -128,6 +142,13 @@
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              {{#if feature_image}}
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  class="portfolio-post-feature-image"
+                />
+              {{/if}}
               <span class="portfolio-post-date">{{date
                   published_at
                   format="MMM YYYY"
@@ -156,6 +177,13 @@
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              {{#if feature_image}}
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  class="portfolio-post-feature-image"
+                />
+              {{/if}}
               <span class="portfolio-post-date">{{date
                   published_at
                   format="MMM YYYY"
@@ -184,6 +212,13 @@
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              {{#if feature_image}}
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  class="portfolio-post-feature-image"
+                />
+              {{/if}}
               <span class="portfolio-post-date">{{date
                   published_at
                   format="MMM YYYY"
@@ -212,6 +247,13 @@
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              {{#if feature_image}}
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  class="portfolio-post-feature-image"
+                />
+              {{/if}}
               <span class="portfolio-post-date">{{date
                   published_at
                   format="MMM YYYY"
@@ -240,6 +282,13 @@
         }}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              {{#if feature_image}}
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  class="portfolio-post-feature-image"
+                />
+              {{/if}}
               <span class="portfolio-post-date">{{date
                   published_at
                   format="MMM YYYY"
@@ -262,6 +311,13 @@
         {{#get "posts" limit="50" order="published_at desc" as |posts meta|}}
           {{#foreach posts}}
             <div class="portfolio-post-item">
+              {{#if feature_image}}
+                <img
+                  src="{{img_url feature_image size="m"}}"
+                  alt="{{title}}"
+                  class="portfolio-post-feature-image"
+                />
+              {{/if}}
               {{#primary_tag}}
                 <span class="portfolio-section-label">{{name}}</span>
               {{/primary_tag}}
