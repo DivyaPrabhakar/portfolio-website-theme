@@ -122,7 +122,10 @@
 }
 
 .portfolio-section.visible {
-  display: block;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
 }
 
 /* ── Old-style grid (writing / project tiles) ── */
@@ -161,13 +164,10 @@
 
 /* ── Post items (shared across all sections) ── */
 .portfolio-post-item {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.portfolio-post-item:last-child {
-  border-bottom: none;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 1.25rem;
+  overflow: hidden;
 }
 
 .portfolio-post-item--with-thumb {
@@ -178,11 +178,10 @@
 
 .portfolio-post-feature-image {
   display: block;
-  width: 100%;
+  width: calc(100% + 2.5rem);
+  margin: -1.25rem -1.25rem 0.75rem -1.25rem;
   height: 140px;
   object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
 }
 
 .portfolio-post-date {
@@ -276,6 +275,13 @@
   margin: 0;
 }
 
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .portfolio-section.visible {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .portfolio-layout {
@@ -291,6 +297,10 @@
   .portfolio-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+
+  .portfolio-section.visible {
+    grid-template-columns: 1fr;
   }
 
   .portfolio-nav-list {
