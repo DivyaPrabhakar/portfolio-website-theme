@@ -199,7 +199,8 @@
   padding: 1rem 1.25rem 0;
 }
 
-.portfolio-post-item:not(:has(.portfolio-post-feature-image)) .portfolio-post-link {
+.portfolio-post-item:not(:has(.portfolio-post-feature-image))
+  .portfolio-post-link {
   padding-top: 1.25rem;
 }
 
@@ -210,14 +211,14 @@
 .portfolio-post-title {
   margin: 0 0 0.4rem 0;
   color: var(--text-secondary-highlight-color);
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .portfolio-post-excerpt {
   color: var(--text-tertiary-highlight-color);
   margin: 0;
   padding: 0 1.25rem 1.25rem;
-  font-size: var(--body-text-size);
+  font-size: 12px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
