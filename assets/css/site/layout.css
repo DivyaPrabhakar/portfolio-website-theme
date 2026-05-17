@@ -21,6 +21,7 @@
   grid-template-columns: auto 1fr;
   gap: 6rem 2rem;
   align-items: start;
+  align-content: start;
   overflow-x: clip;
 }
 
