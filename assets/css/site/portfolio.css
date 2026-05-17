@@ -46,7 +46,7 @@
   gap: 4rem;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: stretch;
+  align-items: flex-start;
   flex-grow: 1;
 }
 
@@ -66,9 +66,9 @@
   flex-shrink: 0;
   background-color: #f8f6f0;
   padding: 2rem;
+  border-radius: 6px;
   position: sticky;
   top: 2rem;
-  align-self: flex-start;
 }
 
 .portfolio-sidebar-label {
@@ -219,8 +219,8 @@
   padding: 0 1.25rem 1.25rem;
   font-size: var(--body-text-size);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
