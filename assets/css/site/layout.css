@@ -16,7 +16,9 @@
 
 .site-main {
   flex-grow: 1;
+  padding: 5rem 20rem;
   display: flex;
+  gap: 6rem;
   flex-direction: column;
   overflow-x: clip;
 }

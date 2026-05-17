@@ -16,8 +16,6 @@
   display: flex;
   gap: 2rem;
   align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto 10rem auto;
   text-align: left;
 }
 
@@ -44,8 +42,6 @@
 .portfolio-layout {
   display: flex;
   gap: 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
   align-items: flex-start;
   flex-grow: 1;
 }
@@ -168,7 +164,6 @@
 .portfolio-post-item {
   border: 1px solid #f0f0f0;
   border-radius: 6px;
-  overflow: hidden;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -182,10 +177,12 @@
 
 .portfolio-post-feature-image {
   display: block;
+  flex: 0 0 140px;
   width: 100%;
   height: 140px;
   object-fit: cover;
   object-position: center;
+  border-radius: 6px 6px 0 0;
 }
 
 .portfolio-post-date {
@@ -212,21 +209,19 @@
 }
 
 .portfolio-post-title {
-  margin: 0 0 0.4rem 0;
   color: var(--text-secondary-highlight-color);
-  font-size: 22px;
+  font-size: 18px;
   display: -webkit-box;
+  -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
-  /* autoprefixer: ignore next */
-  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .portfolio-post-excerpt {
   color: var(--text-tertiary-highlight-color);
   margin: 0;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   font-size: 12px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
