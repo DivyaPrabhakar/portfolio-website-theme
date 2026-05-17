@@ -38,7 +38,7 @@
   margin-top: 2rem;
   word-break: break-word;
   font-style: italic;
-  color: var(--accent-color);
+  color: var(--text-tertiary-highlight-color);
 }
 
 .has-serif-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"])

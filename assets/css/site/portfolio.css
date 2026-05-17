@@ -1,13 +1,12 @@
 /* CSS variables used across the portfolio */
 :root {
-  --text-tertiary-highlight-color: #c9a882;
   --bg-color: #fcfcfc;
   --link-color: #1c30e7;
-  --body-text-size: 1.8rem;
+  --body-text-size: 14px;
   --navigation-text-size: 16px;
-  --nav-hover-text-color: #9e9189;
   --body-text-color: #2c2825;
   --text-secondary-highlight-color: #720514;
+  --text-tertiary-highlight-color: #9e9189;
 }
 
 /* ── Page wrapper ── */
@@ -98,7 +97,7 @@
 }
 
 .portfolio-nav-item:hover {
-  color: var(--accent-color);
+  color: var(--text-tertiary-highlight-color);
   font-style: italic;
   cursor: pointer !important;
 }
@@ -202,11 +201,13 @@
 .portfolio-post-title {
   margin: 0 0 0.4rem 0;
   color: var(--text-secondary-highlight-color);
+  font-size: 20px;
 }
 
 .portfolio-post-excerpt {
-  color: var(--body-text-color);
+  color: var(--text-tertiary-highlight-color);
   margin: 0;
+  font-size: var(--body-text-size);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
