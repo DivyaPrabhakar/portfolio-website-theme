@@ -13,10 +13,7 @@
 
 /* ── Hero ── */
 .portfolio-hero {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  text-align: left;
+  display: contents;
 }
 
 .portfolio-name {
@@ -34,16 +31,17 @@
   font-size: 22px;
 }
 
+.portfolio-tagline p {
+  text-wrap: pretty;
+}
+
 .portfolio-role {
   color: var(--text-tertiary-highlight-color);
 }
 
 /* ── Two-column layout (sidebar + content) ── */
 .portfolio-layout {
-  display: flex;
-  gap: 4rem;
-  align-items: flex-start;
-  flex-grow: 1;
+  display: contents;
 }
 
 .portfolio-content {
@@ -301,11 +299,6 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  .portfolio-layout {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
   .portfolio-sidebar {
     width: 100%;
     position: static;

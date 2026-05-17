@@ -16,10 +16,11 @@
 
 .site-main {
   flex-grow: 1;
-  padding: 5rem 20rem;
-  display: flex;
-  gap: 6rem;
-  flex-direction: column;
+  padding: 6rem 25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6rem 2rem;
+  align-items: start;
   overflow-x: clip;
 }
 
@@ -30,5 +31,9 @@
 @media (max-width: 767px) {
   .site-content {
     padding: 0;
+  }
+
+  .site-main {
+    grid-template-columns: 1fr;
   }
 }
