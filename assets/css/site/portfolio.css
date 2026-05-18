@@ -300,8 +300,15 @@
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .portfolio-sidebar {
-    width: 100%;
-    position: static;
+    display: none;
+  }
+
+  .portfolio-hero {
+    display: block;
+  }
+
+  .portfolio-mobile-header {
+    display: none;
   }
 
   .portfolio-grid {
@@ -311,6 +318,7 @@
 
   .portfolio-section.visible {
     grid-template-columns: 1fr;
+    grid-auto-rows: auto;
   }
 
   .portfolio-nav-list {
@@ -335,5 +343,23 @@
 
   .portfolio-coding-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Section view: triggered after user picks a topic from the mobile menu */
+  .site-main.mobile-section-view .portfolio-hero {
+    display: none;
+  }
+
+  .site-main.mobile-section-view .portfolio-mobile-header {
+    display: block;
+  }
+
+  .portfolio-mobile-section-title {
+    font-family: "Cormorant Garamond", Times, serif;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 300;
+    margin: 0;
+    color: var(--text-secondary-highlight-color);
   }
 }

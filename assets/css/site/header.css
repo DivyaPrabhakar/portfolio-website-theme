@@ -11,3 +11,22 @@
 .gh-head-actions {
   font-family: "DM Sans", sans-serif;
 }
+
+.gh-head-portfolio-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .gh-head-portfolio-nav {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0 1.5rem;
+  }
+
+  .gh-head-portfolio-nav .portfolio-nav-item {
+    font-size: var(--navigation-text-size);
+    font-weight: normal;
+    text-transform: none;
+  }
+}

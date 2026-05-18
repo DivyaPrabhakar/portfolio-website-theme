@@ -34,6 +34,21 @@
                         <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                     {{/match}}
                 {{/unless}}
+                {{#is "index"}}
+                <div class="gh-head-portfolio-nav">
+                    <p class="portfolio-sidebar-label">What I am...</p>
+                    <ul class="portfolio-nav-list">
+                        <li><button class="portfolio-nav-item active" data-section="spending-my-days-on">Spending my days on</button></li>
+                        <li><button class="portfolio-nav-item" data-section="spending-my-nights-on">Spending my nights on</button></li>
+                        <li><button class="portfolio-nav-item" data-section="observing">Observing</button></li>
+                        <li><button class="portfolio-nav-item" data-section="curating">Curating</button></li>
+                        <li><button class="portfolio-nav-item" data-section="organizing">Organizing</button></li>
+                        <li><button class="portfolio-nav-item" data-section="using-ai-for">Using AI for</button></li>
+                        <li><button class="portfolio-nav-item" data-section="not-using-ai-for">Not using AI for</button></li>
+                        <li><button class="portfolio-nav-item portfolio-see-all" data-section="see-everything">See everything</button></li>
+                    </ul>
+                </div>
+                {{/is}}
             </nav>
             
         </div>
