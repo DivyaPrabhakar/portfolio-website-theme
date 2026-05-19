@@ -19,7 +19,7 @@
   padding: 6rem 25rem;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 6rem 2rem;
+  gap: 4rem 2rem;
   align-items: start;
   align-content: start;
   overflow-x: clip;
