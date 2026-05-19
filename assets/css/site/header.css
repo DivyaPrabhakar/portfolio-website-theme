@@ -3,8 +3,10 @@
   height: 2rem;
 }
 
+/* Desktop: name already appears large in page content, suppress it in the header */
 .gh-head-logo {
   font-family: "DM Sans", sans-serif;
+  font-size: 0;
 }
 
 .gh-head-menu,
@@ -16,17 +18,66 @@
   display: none;
 }
 
+@media (min-width: 768px) {
+  #gh-head .gh-head-inner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 767px) {
+  /* Reduce Ghost's 48px row gap between brand and menu */
+  #gh-head .gh-head-inner {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .gh-head-menu {
+    width: 100%;
+  }
+
+  /* Left-align brand items: override Ghost's 1fr auto auto to auto auto auto 1fr */
+  #gh-head .gh-head-brand {
+    grid-template-columns: auto auto auto 1fr;
+  }
+
+  /* Hidden on the landing hero; revealed only after a nav selection via body class */
+  .gh-head-brand-wrapper {
+    display: none;
+  }
+
+body.mobile-section-active .gh-head-logo {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--body-text-color);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
   .gh-head-portfolio-nav {
     display: block;
     width: 100%;
-    text-align: left;
-    padding: 0 1.5rem;
+    background-color: #f8f6f0;
+    border-radius: 6px;
+    padding: 2rem;
+    box-sizing: border-box;
   }
 
+  .portfolio-sidebar-label {
+    font-size: var(--navigation-text-size-mobile);
+  }
+
+  .gh-head-portfolio-nav .portfolio-nav-group-header,
   .gh-head-portfolio-nav .portfolio-nav-item {
-    font-size: var(--navigation-text-size);
+    font-size: var(--navigation-text-size-mobile);
     font-weight: normal;
     text-transform: none;
+    display: block;
+    width: 100%;
   }
 }

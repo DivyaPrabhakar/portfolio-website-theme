@@ -8,7 +8,7 @@
   <div class="portfolio-hero">
     <h1 class="portfolio-name">Divya Prabhakar</h1>
     <div class="portfolio-tagline">
-      <p>I build experiences users trust, products that compound in value, and
+      <p class="portfolio-bio">I build experiences users trust, products that compound in value, and
         operationalized design cultures that scale.
       </p>
       <p class="portfolio-role">Currently: Head of Digital Product Design at
@@ -26,262 +26,72 @@
   <div class="portfolio-layout">
 
     <nav class="portfolio-sidebar">
-      <p class="portfolio-sidebar-label">What I am...</p>
-      <ul class="portfolio-nav-list">
-        <li><button
-            class="portfolio-nav-item active"
-            data-section="spending-my-days-on"
-          >Spending my days on</button></li>
-        <li><button
-            class="portfolio-nav-item"
-            data-section="spending-my-nights-on"
-          >Spending my nights on</button></li>
-        <li><button
-            class="portfolio-nav-item"
-            data-section="observing"
-          >Observing</button></li>
-        <li><button
-            class="portfolio-nav-item"
-            data-section="curating"
-          >Curating</button></li>
-        <li><button
-            class="portfolio-nav-item"
-            data-section="organizing"
-          >Organizing</button></li>
-        <li><button class="portfolio-nav-item" data-section="using-ai-for">Using
-            AI for</button></li>
-        <li><button
-            class="portfolio-nav-item"
-            data-section="not-using-ai-for"
-          >Not using AI for</button></li>
-        <li>
-          <button
-            class="portfolio-nav-item portfolio-see-all"
-            data-section="see-everything"
-          >See everything</button>
-        </li>
-      </ul>
-
+      {{> "portfolio-nav"}}
     </nav>
 
     <div class="portfolio-content-area">
 
-      <div id="section-spending-my-days-on" class="portfolio-section visible">
-        {{#get
-          "posts"
-          limit="20"
-          filter="tag:spending-my-days-on"
-          order="published_at desc"
-          as |posts meta|
-        }}
-          {{#foreach posts}}
-            <div class="portfolio-post-item">
-              {{#if feature_image}}
-                <img
-                  srcset="{{> srcset}}"
-                  sizes="(min-width: 1200px) 800px, 92vw"
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-feature-image"
-                />
-              {{/if}}
-              <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-post-title">{{title}}</h4>
-              </a>
-              <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-            </div>
-          {{/foreach}}
-        {{/get}}
+      <div id="section-designing" class="portfolio-section visible in-group">
+        <h3 class="portfolio-section-group-label">Designing</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:designing" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
       </div>
 
-      <div id="section-spending-my-nights-on" class="portfolio-section">
-        {{#get
-          "posts"
-          limit="20"
-          filter="tag:spending-my-nights-on"
-          order="published_at desc"
-          as |posts meta|
-        }}
-          {{#foreach posts}}
-            <div class="portfolio-post-item">
-              {{#if feature_image}}
-                <img
-                  srcset="{{> srcset}}"
-                  sizes="(min-width: 1200px) 800px, 92vw"
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-feature-image"
-                />
-              {{/if}}
-              <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-post-title">{{title}}</h4>
-              </a>
-              <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-            </div>
-          {{/foreach}}
-        {{/get}}
+      <div id="section-developing" class="portfolio-section visible in-group">
+        <h3 class="portfolio-section-group-label">Developing</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:developing" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
       </div>
 
-      <div id="section-observing" class="portfolio-section">
-        {{#get
-          "posts"
-          limit="20"
-          filter="tag:observing"
-          order="published_at desc"
-          as |posts meta|
-        }}
-          {{#foreach posts}}
-            <div class="portfolio-post-item">
-              {{#if feature_image}}
-                <img
-                  srcset="{{> srcset}}"
-                  sizes="(min-width: 1200px) 800px, 92vw"
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-feature-image"
-                />
-              {{/if}}
-              <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-post-title">{{title}}</h4>
-              </a>
-              <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-            </div>
-          {{/foreach}}
-        {{/get}}
+      <div id="section-observing" class="portfolio-section visible in-group">
+        <h3 class="portfolio-section-group-label">Observing</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:observing" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
       </div>
 
       <div id="section-curating" class="portfolio-section">
-        {{#get
-          "posts"
-          limit="20"
-          filter="tag:curating"
-          order="published_at desc"
-          as |posts meta|
-        }}
-          {{#foreach posts}}
-            <div class="portfolio-post-item">
-              {{#if feature_image}}
-                <img
-                  srcset="{{> srcset}}"
-                  sizes="(min-width: 1200px) 800px, 92vw"
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-feature-image"
-                />
-              {{/if}}
-              <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-post-title">{{title}}</h4>
-              </a>
-              <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-            </div>
-          {{/foreach}}
-        {{/get}}
+        <h3 class="portfolio-section-group-label">Curating</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:curating" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
       </div>
 
       <div id="section-organizing" class="portfolio-section">
-        {{#get
-          "posts"
-          limit="20"
-          filter="tag:organizing"
-          order="published_at desc"
-          as |posts meta|
-        }}
-          {{#foreach posts}}
-            <div class="portfolio-post-item">
-              {{#if feature_image}}
-                <img
-                  srcset="{{> srcset}}"
-                  sizes="(min-width: 1200px) 800px, 92vw"
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-feature-image"
-                />
-              {{/if}}
-              <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-post-title">{{title}}</h4>
-              </a>
-              <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-            </div>
-          {{/foreach}}
-        {{/get}}
+        <h3 class="portfolio-section-group-label">Organizing</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:organizing" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
       </div>
 
       <div id="section-using-ai-for" class="portfolio-section">
-        {{#get
-          "posts"
-          limit="20"
-          filter="tag:using-ai-for"
-          order="published_at desc"
-          as |posts meta|
-        }}
-          {{#foreach posts}}
-            <div class="portfolio-post-item">
-              {{#if feature_image}}
-                <img
-                  srcset="{{> srcset}}"
-                  sizes="(min-width: 1200px) 800px, 92vw"
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-feature-image"
-                />
-              {{/if}}
-              <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-post-title">{{title}}</h4>
-              </a>
-              <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-            </div>
-          {{/foreach}}
-        {{/get}}
+        <h3 class="portfolio-section-group-label">Using AI for</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:using-ai-for" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
       </div>
 
       <div id="section-not-using-ai-for" class="portfolio-section">
-        {{#get
-          "posts"
-          limit="20"
-          filter="tag:not-using-ai-for"
-          order="published_at desc"
-          as |posts meta|
-        }}
-          {{#foreach posts}}
-            <div class="portfolio-post-item">
-              {{#if feature_image}}
-                <img
-                  srcset="{{> srcset}}"
-                  sizes="(min-width: 1200px) 800px, 92vw"
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-feature-image"
-                />
-              {{/if}}
-              <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-post-title">{{title}}</h4>
-              </a>
-              <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-            </div>
-          {{/foreach}}
-        {{/get}}
-      </div>
-
-      <div id="section-see-everything" class="portfolio-section">
-        {{#get "posts" limit="50" order="published_at desc" as |posts meta|}}
-          {{#foreach posts}}
-            <div class="portfolio-post-item">
-              {{#if feature_image}}
-                <img
-                  srcset="{{> srcset}}"
-                  sizes="(min-width: 1200px) 800px, 92vw"
-                  src="{{img_url feature_image size="l"}}"
-                  alt="{{title}}"
-                  class="portfolio-post-feature-image"
-                />
-              {{/if}}
-              <a href="{{url}}" class="portfolio-post-link">
-                <h4 class="portfolio-post-title">{{title}}</h4>
-              </a>
-              <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-            </div>
-          {{/foreach}}
-        {{/get}}
+        <h3 class="portfolio-section-group-label">Not using AI for</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:not-using-ai-for" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
       </div>
 
     </div>
