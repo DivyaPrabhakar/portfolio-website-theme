@@ -247,7 +247,6 @@
   text-decoration: none;
   color: inherit;
   padding: 1.5rem 1rem 0 1rem;
-  font-size: 16px;
 }
 
 .portfolio-post-item:not(:has(.portfolio-post-feature-image))
@@ -265,6 +264,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
+  font-size: 16px;
   overflow: hidden;
 }
 
