@@ -216,6 +216,7 @@
   border-radius: 6px;
   min-width: 0;
   display: flex;
+  background-color: var(--bg-color);
   flex-direction: column;
 }
 
@@ -245,7 +246,7 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  padding: 1.5rem 0 0 0;
+  padding: 1.5rem 1rem 0 1rem;
   font-size: 16px;
 }
 
@@ -260,7 +261,6 @@
 
 .portfolio-post-title {
   color: var(--text-secondary-highlight-color);
-  font-size: 18px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
