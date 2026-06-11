@@ -50,6 +50,12 @@
     {{/match}}
 
     <div class="single-content gh-content gh-canvas">
+        {{#is "post"}}
+            <aside class="post-toc" aria-label="Table of contents" hidden>
+                <button class="post-toc-toggle" aria-expanded="false">On this page</button>
+                <nav class="post-toc-nav"><ul class="post-toc-list"></ul></nav>
+            </aside>
+        {{/is}}
         {{content}}
     </div>
 

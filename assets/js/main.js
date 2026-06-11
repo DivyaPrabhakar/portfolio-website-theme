@@ -3,7 +3,95 @@ $(function () {
     featured();
     pagination(false);
     portfolioNav();
+    tableOfContents();
 });
+
+function tableOfContents() {
+    'use strict';
+    var container = document.querySelector('.post-toc');
+    var content = document.querySelector('.gh-content');
+    if (!container || !content) return;
+
+    var headings = content.querySelectorAll('h2, h3');
+    if (headings.length < 2) {
+        container.remove();
+        return;
+    }
+
+    function slugify(text) {
+        return text
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/[\s_-]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    var list = container.querySelector('.post-toc-list');
+    var usedIds = {};
+    var links = [];
+    var targets = [];
+
+    headings.forEach(function (heading) {
+        var id = heading.id;
+        if (!id) {
+            id = slugify(heading.textContent) || 'section';
+            var base = id;
+            var n = 2;
+            while (document.getElementById(id) || usedIds[id]) {
+                id = base + '-' + n++;
+            }
+            heading.id = id;
+        }
+        usedIds[id] = true;
+
+        var item = document.createElement('li');
+        item.className = 'post-toc-item post-toc-item-' + heading.tagName.toLowerCase();
+
+        var link = document.createElement('a');
+        link.className = 'post-toc-link';
+        link.href = '#' + id;
+        link.textContent = heading.textContent;
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            heading.scrollIntoView({behavior: 'smooth', block: 'start'});
+            history.replaceState(null, '', '#' + id);
+            container.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+        });
+
+        item.appendChild(link);
+        list.appendChild(item);
+        links.push(link);
+        targets.push(heading);
+    });
+
+    container.hidden = false;
+
+    var toggle = container.querySelector('.post-toc-toggle');
+    toggle.addEventListener('click', function () {
+        var open = container.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    if ('IntersectionObserver' in window) {
+        var visible = {};
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                visible[entry.target.id] = entry.isIntersecting;
+            });
+            var activeIndex = -1;
+            for (var i = 0; i < targets.length; i++) {
+                if (visible[targets[i].id]) { activeIndex = i; break; }
+            }
+            links.forEach(function (l, i) {
+                l.classList.toggle('active', i === activeIndex);
+            });
+        }, {rootMargin: '-10% 0px -70% 0px'});
+
+        targets.forEach(function (target) { observer.observe(target); });
+    }
+}
 
 function portfolioNav() {
     'use strict';
