@@ -58,6 +58,15 @@
         </div>
       </div>
 
+      <div id="section-visualizing" class="portfolio-section visible in-group">
+        <h3 class="portfolio-section-group-label">Visualizing</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:visualizing" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
+      </div>
+
       <div id="section-curating" class="portfolio-section">
         <h3 class="portfolio-section-group-label">Curating</h3>
         <div class="portfolio-section-grid">
