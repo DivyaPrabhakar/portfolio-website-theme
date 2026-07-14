@@ -6,7 +6,7 @@
   --navigation-text-size: 16px;
   --navigation-text-size-mobile: 20px;
   --body-text-color: #2c2825;
-  --text-secondary-highlight-color: #720514;
+  --text-secondary-highlight-color: #ee314b;
   --text-tertiary-highlight-color: #9e9189;
   --portfolio-divider-color: #d9d2c5;
   --portfolio-item-border-color: #ece3d2;
@@ -26,7 +26,8 @@
 }
 
 .home-template .site-main {
-  --page-pad-x: 12rem;
+  /* Fluid side padding that scales with the viewport width. */
+  --page-pad-x: clamp(1.5rem, 8vw, 12rem);
   display: flex;
   flex-direction: column;
   padding: 4rem var(--page-pad-x);
@@ -47,7 +48,7 @@
   font-family: "Cormorant Garamond", Times, serif;
   white-space: nowrap;
   flex-shrink: 0;
-  margin: 0;
+  margin: 0 3rem 0 0;
   font-size: 40px;
   letter-spacing: 0.02em;
 }
@@ -143,7 +144,7 @@
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.04em;
   color: var(--body-text-color);
 }
 
@@ -153,6 +154,7 @@
   color: var(--text-tertiary-highlight-color);
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
   transition: color 0.15s ease;
 }
 
@@ -164,6 +166,7 @@
 
 .portfolio-see-all:hover {
   color: var(--text-secondary-highlight-color);
+  text-decoration: underline;
 }
 
 /* ── Item rows (image left, title + description right), two side by side ── */
@@ -256,14 +259,6 @@
   text-decoration: underline;
 }
 
-/* ── Tablet ── */
-@media (max-width: 1024px) {
-  .home-template .site-main {
-    --page-pad-x: 3rem;
-    padding: 4rem var(--page-pad-x);
-  }
-}
-
 /* ── Stack the two columns; nights becomes a full-width darker band ── */
 @media (max-width: 900px) {
   .portfolio-columns {
@@ -279,7 +274,6 @@
 /* ── Mobile ── */
 @media (max-width: 767px) {
   .home-template .site-main {
-    --page-pad-x: 1.5rem;
     padding: 2rem var(--page-pad-x);
   }
 
