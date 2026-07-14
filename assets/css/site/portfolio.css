@@ -8,13 +8,35 @@
   --body-text-color: #2c2825;
   --text-secondary-highlight-color: #720514;
   --text-tertiary-highlight-color: #9e9189;
+  --portfolio-divider-color: #d9d2c5;
+  --portfolio-item-border-color: #bcae96;
+  --portfolio-bg-days: #f4f0e7;
+  --portfolio-bg-nights: #e8dfcd;
+  --portfolio-muted-warm: #7a5a37;
 }
 
-/* ── Page wrapper ── */
+/* ── Homepage: warm cream base, and neutralize the shared grid on .site-main ── */
+.home-template .site-content,
+.home-template .gh-head {
+  background-color: var(--portfolio-bg-days);
+}
 
-/* ── Hero ── */
+.home-template .site-main {
+  --page-pad-x: 6rem;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem var(--page-pad-x);
+  background-color: transparent;
+}
+
+/* ── Hero (name left, bio right) ── */
 .portfolio-hero {
-  display: contents;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+  margin-bottom: 3rem;
 }
 
 .portfolio-name {
@@ -26,376 +48,242 @@
   letter-spacing: -0.02em;
 }
 
+.portfolio-role {
+  margin: 0.75rem 0 0 0;
+  color: var(--portfolio-muted-warm);
+}
+
 .portfolio-tagline {
-  flex: 1;
-  min-width: 0;
-  font-size: 22px;
+  /* Size to the longest sentence so each line stays on one line; the flex
+     container shrinks this (wrapping the text) as the screen narrows. */
+  width: max-content;
+  max-width: 100%;
+  margin-top: 0.5rem;
+  text-align: right;
+  font-family: "Cormorant Garamond", Times, serif;
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--body-text-color);
 }
 
 .portfolio-tagline p {
+  margin: 0;
   text-wrap: pretty;
 }
 
-.portfolio-role {
-  color: var(--text-tertiary-highlight-color);
-}
-
-/* ── Two-column layout (sidebar + content) ── */
-.portfolio-layout {
-  display: contents;
-}
-
-.portfolio-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.portfolio-content-area {
+/* ── Two top-level columns (days / nights) ── */
+.portfolio-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 6rem;
+  /* Fill the remaining page height so the columns (and the darker nights
+     panel) stretch to the bottom of the page. */
   flex: 1;
-  min-width: 0;
-  background-color: #f8f6f0;
-  padding: 1rem;
 }
 
-/* ── Sidebar ── */
-.portfolio-sidebar {
-  width: 30rem;
-  flex-shrink: 0;
-  padding: 0 2rem 2rem 2rem;
-  border-radius: 6px;
-  position: sticky;
-  top: 2rem;
+/* Equal top padding keeps the two headings aligned; the days column is
+   transparent (page base) while the nights column carries a darker panel. */
+.portfolio-column {
+  padding-top: 2rem;
 }
 
-.portfolio-sidebar-label {
-  margin: 0 0 0.75rem 0;
-  font-size: var(--navigation-text-size);
+.portfolio-column--nights {
+  background-color: var(--portfolio-bg-nights);
+  /* Contained darker panel: inset from the page edge by the site padding,
+     with its own inner padding so nothing sits flush against its edges. */
+  padding: 2rem 2.5rem 3rem;
 }
 
-.portfolio-nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem 0;
+.portfolio-column-heading {
+  font-family: "Cormorant Garamond", Times, serif;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding-top: 1rem;
 }
 
-.portfolio-nav-group-item {
-  margin-bottom: 2rem;
+.portfolio-column-subtitle {
+  margin: 0.25rem 0 2.5rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--portfolio-item-border-color);
+  font-family: "Cormorant Garamond", Times, serif;
+  font-style: normal;
+  font-size: 21px;
+  color: var(--portfolio-muted-warm);
 }
 
-.portfolio-nav-group-header {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-size: var(--navigation-text-size);
-  color: #7a7068;
-  transition: color 0.15s ease;
-}
-
-.portfolio-nav-group-header:hover {
-  color: var(--text-tertiary-highlight-color);
-  font-style: italic;
-  cursor: pointer;
-}
-
-.portfolio-nav-group-header.active {
-  color: var(--text-secondary-highlight-color);
-  font-weight: bold;
-  font-style: italic;
-  cursor: default;
-}
-
-.portfolio-nav-sublist {
-  list-style: none;
-  padding: 0 0 0 1.5rem;
-  margin: 0.5rem 0 0 0;
-}
-
-.portfolio-nav-item {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-size: var(--navigation-text-size);
-  color: #7a7068;
-  transition: color 0.15s ease;
-  text-decoration: none;
-}
-
-.portfolio-nav-item:hover {
-  color: var(--text-tertiary-highlight-color);
-  font-style: italic;
-  cursor: pointer !important;
-}
-
-.portfolio-nav-item.active {
-  color: var(--text-secondary-highlight-color);
-  font-weight: bold;
-  font-style: italic;
-  cursor: default !important;
-}
-
-/* ── Section visibility ── */
-.portfolio-section {
-  display: none;
-}
-
-.portfolio-section.visible {
+/* ── Nights subsections stack vertically, like the days column ── */
+.portfolio-nights-grid {
   display: block;
 }
 
-.portfolio-section.in-group + .portfolio-section.in-group {
-  margin-top: 3rem;
+/* ── Subsection (label + descriptor + see all, then item list) ── */
+.portfolio-subsection {
+  margin-bottom: 2.5rem;
 }
 
-.portfolio-section-group-label {
-  display: none;
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-tertiary-highlight-color);
-  margin: 0 0 1rem 0;
-}
-
-.portfolio-section.in-group .portfolio-section-group-label {
-  display: block;
-}
-
-.portfolio-section-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 320px;
-  gap: 2rem;
-}
-
-/* ── Old-style grid (writing / project tiles) ── */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 5rem;
-  margin-bottom: 4rem;
-}
-
-.portfolio-column-title {
-  margin: 0 0 1rem 0;
-}
-
-.portfolio-link {
-  text-decoration: underline;
-  color: var(--link-color);
-  transition: color 0.15s ease;
-}
-
-.portfolio-item-title {
-  margin: 0 0 0.4rem 0;
-
-  text-decoration: underline;
-}
-
-.portfolio-now {
-  border-top: 1px solid #e6e6e6;
-  padding-top: 2.5rem;
-  margin-top: 5rem;
-}
-
-.portfolio-now-title {
-  margin: 0 0 1.5rem 0;
-}
-
-/* ── Post items (shared across all sections) ── */
-.portfolio-post-item {
-  border: 1px solid #f0f0f0;
-  border-radius: 6px;
-  min-width: 0;
+.portfolio-subsection-head {
   display: flex;
-  background-color: var(--bg-color);
-  flex-direction: column;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary-highlight-color);
 }
 
-.portfolio-post-item--with-thumb {
+.portfolio-subsection-label {
+  margin-bottom: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: inherit;
+}
+
+.portfolio-see-all {
+  margin-left: auto;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  color: var(--text-tertiary-highlight-color);
+  text-decoration: underline;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.portfolio-see-all:hover {
+  color: var(--text-secondary-highlight-color);
+}
+
+/* ── Item rows (image left, title + description right), two side by side ── */
+.portfolio-item-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  /* Border on the list (not each post) so it spans the full container width
+     even when a section has fewer than two posts. */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--portfolio-item-border-color);
+}
+
+.portfolio-post-item {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-}
-
-.portfolio-post-feature-image {
-  display: block;
-  flex: 0 0 140px;
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 6px 6px 0 0;
-}
-
-.portfolio-post-date {
-  display: block;
-  color: #aaa;
-  margin-bottom: 0.25rem;
-}
-
-.portfolio-post-link {
-  display: block;
   text-decoration: none;
   color: inherit;
-  padding: 1.5rem 1rem 0 1rem;
 }
 
-.portfolio-post-item:not(:has(.portfolio-post-feature-image))
-  .portfolio-post-link {
-  padding-top: 1.25rem;
+.portfolio-post-thumb {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
 }
 
-.portfolio-post-link:hover .portfolio-post-title {
-  text-decoration: underline;
+.portfolio-post-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.portfolio-post-thumb--empty {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #c9c1b4;
+  border-radius: 4px;
+  background: #f0ece2;
+}
+
+.portfolio-post-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .portfolio-post-title {
-  color: var(--text-secondary-highlight-color);
+  font-family: "Cormorant Garamond", Times, serif;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--body-text-color);
   display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  font-size: 16px;
-  overflow: hidden;
-}
-
-.portfolio-post-excerpt {
-  color: var(--text-tertiary-highlight-color);
-  margin: 0;
-  padding: 1rem 1rem 0 1rem;
-  font-size: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
   /* autoprefixer: ignore next */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.portfolio-post-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
+.portfolio-post-item:hover .portfolio-post-title {
+  text-decoration: underline;
 }
 
-.portfolio-tag-pill {
-  background: #f0f0f0;
-  border-radius: 100px;
-  color: #666;
+.portfolio-post-excerpt {
+  margin: 0.2rem 0 0 0;
+  font-size: 12px;
+  color: var(--portfolio-muted-warm);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.portfolio-post-thumb {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 4px;
-  flex-shrink: 0;
+/* ── Generic link (used outside the homepage too) ── */
+.portfolio-link {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text-secondary-highlight-color);
+  transition: color 0.15s ease;
 }
 
-.portfolio-post-text {
-  flex: 1;
-}
-
-/* ── Section label (meta tag above post title in "See everything") ── */
-.portfolio-section-label {
-  display: block;
-  color: var(--body-text-color);
-  margin-bottom: 0.2rem;
-}
-
-/* ── Coding section ── */
-.portfolio-coding-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.portfolio-coding-thumb {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
-  display: block;
-}
-
-/* ── Noticing section ── */
-.portfolio-noticing-item {
-  margin-bottom: 2.5rem;
-}
-
-.portfolio-noticing-header {
-  margin: 0 0 0.5rem 0;
-}
-
-.portfolio-noticing-body {
-  margin: 0;
-}
-
-.portfolio-mobile-header {
-  display: none;
+.portfolio-link:hover {
+  text-decoration: underline;
 }
 
 /* ── Tablet ── */
 @media (max-width: 1024px) {
-  .portfolio-section-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .home-template .site-main {
+    --page-pad-x: 3rem;
+    padding: 4rem var(--page-pad-x);
+  }
+}
+
+/* ── Stack the two columns; nights becomes a full-width darker band ── */
+@media (max-width: 900px) {
+  .portfolio-columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .portfolio-column--nights {
+    margin-top: 2.5rem;
   }
 }
 
 /* ── Mobile ── */
-@media (max-width: 768px) {
-  .portfolio-sidebar {
-    display: none;
+@media (max-width: 767px) {
+  .home-template .site-main {
+    --page-pad-x: 1.5rem;
+    padding: 2rem var(--page-pad-x);
   }
 
   .portfolio-hero {
-    display: block;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .portfolio-grid {
+  .portfolio-tagline {
+    width: auto;
+    max-width: none;
+    text-align: left;
+  }
+
+  .portfolio-item-list {
     grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .portfolio-section-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-  }
-
-  .portfolio-see-all {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #e6e6e6;
-  }
-
-  .portfolio-coding-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Section view: triggered after user picks a topic from the mobile menu */
-  .site-main.mobile-section-view .portfolio-hero {
-    display: none;
-  }
-
-  .site-main.mobile-section-view .portfolio-mobile-header {
-    display: block;
-  }
-
-  .portfolio-mobile-section-title {
-    font-family: "Cormorant Garamond", Times, serif;
-    font-size: 28px;
-    margin: 0;
-    color: var(--text-secondary-highlight-color);
   }
 }
