@@ -1,16 +1,11 @@
 {{!< default}}
 <main class="site-main">
 
-  <div class="portfolio-mobile-header">
-    <h2 class="portfolio-mobile-section-title"></h2>
-  </div>
-
-  <div class="portfolio-hero">
+  <header class="portfolio-hero">
     <h1 class="portfolio-name">Divya Prabhakar</h1>
     <div class="portfolio-tagline">
       <p class="portfolio-bio">I build experiences users trust, products that compound in value, and
-        operationalized design cultures that scale.
-      </p>
+        operationalized design cultures that scale.</p>
       <p class="portfolio-role">Currently:
         <a
           class="portfolio-link"
@@ -23,93 +18,124 @@
           href="https://www.formenergy.com"
           target="_blank"
           rel="noopener noreferrer"
-        >Form Energy</a>, building energy storage for a clean and reliable grid. </p>
-
+        >Form Energy</a>, building energy storage for a clean and reliable grid.</p>
     </div>
+  </header>
 
-  </div>
+  <div class="portfolio-columns">
 
-  <div class="portfolio-layout">
+    {{!-- ── Spending my days on ── --}}
+    <section class="portfolio-column portfolio-column--days">
+      <h2 class="portfolio-column-heading">Spending my days on</h2>
+      <p class="portfolio-column-subtitle">Design leadership, engineering, and observations about systems</p>
 
-    <nav class="portfolio-sidebar">
-      {{> "portfolio-nav"}}
-    </nav>
-
-    <div class="portfolio-content-area">
-
-      <div id="section-visualizing" class="portfolio-section visible in-group">
-        <h3 class="portfolio-section-group-label">Visualizing</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:visualizing" order="published_at desc" as |posts meta|}}
+      <div class="portfolio-subsection">
+        <div class="portfolio-subsection-head">
+          <span class="portfolio-subsection-label">Designing</span>
+          <a class="portfolio-see-all" href="/tag/designing/">See all</a>
+        </div>
+        <div class="portfolio-item-list">
+          {{#get "posts" limit="2" filter="tag:designing" order="published_at desc" as |posts|}}
             {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
           {{/get}}
         </div>
       </div>
 
-      <div id="section-designing" class="portfolio-section visible in-group">
-        <h3 class="portfolio-section-group-label">Designing</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:designing" order="published_at desc" as |posts meta|}}
+      <div class="portfolio-subsection">
+        <div class="portfolio-subsection-head">
+          <span class="portfolio-subsection-label">Developing</span>
+          <a class="portfolio-see-all" href="/tag/developing/">See all</a>
+        </div>
+        <div class="portfolio-item-list">
+          {{#get "posts" limit="2" filter="tag:developing" order="published_at desc" as |posts|}}
             {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
           {{/get}}
         </div>
       </div>
 
-      <div id="section-developing" class="portfolio-section visible in-group">
-        <h3 class="portfolio-section-group-label">Developing</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:developing" order="published_at desc" as |posts meta|}}
+      <div class="portfolio-subsection">
+        <div class="portfolio-subsection-head">
+          <span class="portfolio-subsection-label">Observing</span>
+          <a class="portfolio-see-all" href="/tag/observing/">See all</a>
+        </div>
+        <div class="portfolio-item-list">
+          {{#get "posts" limit="2" filter="tag:observing" order="published_at desc" as |posts|}}
             {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
           {{/get}}
         </div>
       </div>
 
-      <div id="section-observing" class="portfolio-section visible in-group">
-        <h3 class="portfolio-section-group-label">Observing</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:observing" order="published_at desc" as |posts meta|}}
+      <div class="portfolio-subsection">
+        <div class="portfolio-subsection-head">
+          <span class="portfolio-subsection-label">Visualizing</span>
+          <a class="portfolio-see-all" href="/tag/visualizing/">See all</a>
+        </div>
+        <div class="portfolio-item-list">
+          {{#get "posts" limit="2" filter="tag:visualizing" order="published_at desc" as |posts|}}
             {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
           {{/get}}
         </div>
       </div>
+    </section>
 
-      <div id="section-curating" class="portfolio-section">
-        <h3 class="portfolio-section-group-label">Curating</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:curating" order="published_at desc" as |posts meta|}}
-            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-          {{/get}}
+    {{!-- ── Spending my nights on ── --}}
+    <section class="portfolio-column portfolio-column--nights">
+      <h2 class="portfolio-column-heading">Spending my nights on</h2>
+      <p class="portfolio-column-subtitle">The newsletter, the data viz, the parenting, the tinkering.</p>
+
+      <div class="portfolio-nights-grid">
+
+        <div class="portfolio-subsection">
+          <div class="portfolio-subsection-head">
+            <span class="portfolio-subsection-label">Curating</span>
+            <a class="portfolio-see-all" href="/tag/curating/">See all</a>
+          </div>
+          <div class="portfolio-item-list">
+            {{#get "posts" limit="2" filter="tag:curating" order="published_at desc" as |posts|}}
+              {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+            {{/get}}
+          </div>
         </div>
-      </div>
 
-      <div id="section-organizing" class="portfolio-section">
-        <h3 class="portfolio-section-group-label">Organizing</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:organizing" order="published_at desc" as |posts meta|}}
-            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-          {{/get}}
+        <div class="portfolio-subsection">
+          <div class="portfolio-subsection-head">
+            <span class="portfolio-subsection-label">Organizing</span>
+            <a class="portfolio-see-all" href="/tag/organizing/">See all</a>
+          </div>
+          <div class="portfolio-item-list">
+            {{#get "posts" limit="2" filter="tag:organizing" order="published_at desc" as |posts|}}
+              {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+            {{/get}}
+          </div>
         </div>
-      </div>
 
-      <div id="section-using-ai-for" class="portfolio-section">
-        <h3 class="portfolio-section-group-label">Using AI for</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:using-ai-for" order="published_at desc" as |posts meta|}}
-            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-          {{/get}}
+        <div class="portfolio-subsection">
+          <div class="portfolio-subsection-head">
+            <span class="portfolio-subsection-label">Using AI for</span>
+            <a class="portfolio-see-all" href="/tag/using-ai-for/">See all</a>
+          </div>
+          <div class="portfolio-item-list">
+            {{#get "posts" limit="2" filter="tag:using-ai-for" order="published_at desc" as |posts|}}
+              {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+            {{/get}}
+          </div>
         </div>
-      </div>
 
-      <div id="section-not-using-ai-for" class="portfolio-section">
-        <h3 class="portfolio-section-group-label">Not using AI for</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:not-using-ai-for" order="published_at desc" as |posts meta|}}
-            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-          {{/get}}
+        <div class="portfolio-subsection">
+          <div class="portfolio-subsection-head">
+            <span class="portfolio-subsection-label">Not using AI for</span>
+            <a class="portfolio-see-all" href="/tag/not-using-ai-for/">See all</a>
+          </div>
+          <div class="portfolio-item-list">
+            {{#get "posts" limit="2" filter="tag:not-using-ai-for" order="published_at desc" as |posts|}}
+              {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+            {{/get}}
+          </div>
         </div>
-      </div>
 
-    </div>
+      </div>
+    </section>
+
   </div>
 
 </main>

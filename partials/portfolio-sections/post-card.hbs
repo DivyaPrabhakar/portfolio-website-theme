@@ -1,9 +1,13 @@
-<div class="portfolio-post-item">
-  {{#if feature_image}}
-    <img srcset="{{> srcset}}" sizes="(min-width: 1200px) 800px, 92vw" src="{{img_url feature_image size="l"}}" alt="{{title}}" class="portfolio-post-feature-image" />
-  {{/if}}
-  <a href="{{url}}" class="portfolio-post-link">
-    <h4 class="portfolio-post-title">{{title}}</h4>
-  </a>
-  <p class="portfolio-post-excerpt">{{excerpt words="30"}}</p>
-</div>
+<a href="{{url}}" class="portfolio-post-item">
+  <span class="portfolio-post-thumb">
+    {{#if feature_image}}
+      <img srcset="{{> srcset}}" sizes="120px" src="{{img_url feature_image size="s"}}" alt="{{title}}" />
+    {{else}}
+      <span class="portfolio-post-thumb--empty" aria-hidden="true"></span>
+    {{/if}}
+  </span>
+  <span class="portfolio-post-text">
+    <span class="portfolio-post-title">{{title}}</span>
+    <span class="portfolio-post-excerpt">{{excerpt words="20"}}</span>
+  </span>
+</a>
