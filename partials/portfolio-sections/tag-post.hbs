@@ -1,0 +1,22 @@
+<article class="tag-post">
+  <a class="tag-post-media" href="{{url}}">
+    {{#if feature_image}}
+      <img class="tag-post-media-img" src="{{img_url feature_image size="m"}}" srcset="{{> srcset}}" sizes="352px" alt="{{title}}" />
+    {{else}}
+      <span class="tag-post-media-empty">
+        <svg class="tag-post-media-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.6"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+        <span class="tag-post-media-label">Screenshot</span>
+        <span class="tag-post-media-sub">or <span class="tag-post-media-link">browse files</span></span>
+      </span>
+    {{/if}}
+  </a>
+
+  <div class="tag-post-body">
+    <a class="tag-post-title-link" href="{{url}}"><h2 class="tag-post-title">{{title}}</h2></a>
+    <p class="tag-post-excerpt">{{excerpt words="28"}}</p>
+  </div>
+</article>

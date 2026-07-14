@@ -1,35 +1,48 @@
 {{!< default}}
+{{#tag}}{{#match slug "curating"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "organizing"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "using-ai-for"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "not-using-ai-for"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{/match}}{{/tag}}
+<main class="site-main tag-archive">
 
-<main class="site-main">
+  <aside class="tag-sidebar">
+    <a class="tag-sidebar-name" href="{{@site.url}}/">Divya Prabhakar</a>
+    <a class="tag-back" href="{{@site.url}}/">&larr; Back to everything</a>
 
+    <nav class="tag-nav">
+      <p class="tag-nav-group">Spending my days on</p>
+      {{> "tag-nav-item" slug="designing" label="Designing" current=tag.slug}}
+      {{> "tag-nav-item" slug="developing" label="Developing" current=tag.slug}}
+      {{> "tag-nav-item" slug="observing" label="Observing" current=tag.slug}}
+      {{> "tag-nav-item" slug="visualizing" label="Visualizing" current=tag.slug}}
+
+      <p class="tag-nav-group">Spending my nights on</p>
+      {{> "tag-nav-item" slug="curating" label="Curating" current=tag.slug}}
+      {{> "tag-nav-item" slug="organizing" label="Organizing" current=tag.slug}}
+      {{> "tag-nav-item" slug="using-ai-for" label="Using AI for" current=tag.slug}}
+      {{> "tag-nav-item" slug="not-using-ai-for" label="Not using AI for" current=tag.slug}}
+    </nav>
+  </aside>
+
+  <div class="tag-main">
     {{#tag}}
-    <section class="tag">
+    <p class="tag-breadcrumb">
+      <span>{{#match slug "designing"}}Spending my days on{{else match slug "developing"}}Spending my days on{{else match slug "observing"}}Spending my days on{{else match slug "visualizing"}}Spending my days on{{else}}Spending my nights on{{/match}}</span>
+      <span class="tag-breadcrumb-sep">/</span>
+      <span class="tag-breadcrumb-current">{{name}}</span>
+    </p>
 
-        <div class="gh-canvas">
+    <h1 class="tag-title">{{name}}</h1>
 
-            <h1 class="tag-name">{{name}}</h1>
+    <hr class="tag-rule" />
 
-            {{#if description}}
-                <div class="tag-description">{{description}}</div>
-            {{/if}}
+    <p class="tag-count">
+      {{#get "posts" filter="tag:{{slug}}" limit="1"}}{{pagination.total}} {{#match pagination.total "1"}}post{{else}}posts{{/match}}{{/get}}{{#get "posts" filter="tag:{{slug}}+featured:true" limit="1"}}{{#if pagination.total}} &middot; {{pagination.total}} ongoing{{/if}}{{/get}}
+    </p>
 
-            {{#if feature_image}}
-                <div class="tag-media u-placeholder horizontal kg-width-wide">
-                    <img class="u-object-fit" srcset="{{> srcset}}" src="{{img_url feature_image size="l"}}" alt="{{name}}">
-                </div>
-            {{/if}}
-
-        </div>
-
-    </section>
-    {{/tag}}
-
-    <div class="post-feed gh-feed gh-canvas">
-        {{#foreach posts}}
-            {{> "loop"}}
-        {{/foreach}}
+    <div class="tag-post-list">
+      {{#get "posts" filter="tag:{{slug}}" limit="all" include="tags" order="featured desc, published_at desc" as |tagposts|}}
+        {{#foreach tagposts}}{{> "portfolio-sections/tag-post"}}{{/foreach}}
+      {{/get}}
     </div>
-
-    {{pagination}}
+    {{/tag}}
+  </div>
 
 </main>
