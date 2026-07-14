@@ -11,7 +11,13 @@
       <p class="portfolio-bio">I build experiences users trust, products that compound in value, and
         operationalized design cultures that scale.
       </p>
-      <p class="portfolio-role">Currently: Head of Digital Product Design at
+      <p class="portfolio-role">Currently:
+        <a
+          class="portfolio-link"
+          href="https://www.linkedin.com/in/divyaprabhakar/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Head of Digital Product Design</a> at
         <a
           class="portfolio-link"
           href="https://www.formenergy.com"
@@ -30,6 +36,15 @@
     </nav>
 
     <div class="portfolio-content-area">
+
+      <div id="section-visualizing" class="portfolio-section visible in-group">
+        <h3 class="portfolio-section-group-label">Visualizing</h3>
+        <div class="portfolio-section-grid">
+          {{#get "posts" limit="20" filter="tag:visualizing" order="published_at desc" as |posts meta|}}
+            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
+          {{/get}}
+        </div>
+      </div>
 
       <div id="section-designing" class="portfolio-section visible in-group">
         <h3 class="portfolio-section-group-label">Designing</h3>
@@ -53,15 +68,6 @@
         <h3 class="portfolio-section-group-label">Observing</h3>
         <div class="portfolio-section-grid">
           {{#get "posts" limit="20" filter="tag:observing" order="published_at desc" as |posts meta|}}
-            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-          {{/get}}
-        </div>
-      </div>
-
-      <div id="section-visualizing" class="portfolio-section visible in-group">
-        <h3 class="portfolio-section-group-label">Visualizing</h3>
-        <div class="portfolio-section-grid">
-          {{#get "posts" limit="20" filter="tag:visualizing" order="published_at desc" as |posts meta|}}
             {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
           {{/get}}
         </div>
