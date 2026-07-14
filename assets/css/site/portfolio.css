@@ -82,17 +82,15 @@
   flex: 1;
 }
 
-/* Equal top padding keeps the two headings aligned; the days column is
-   transparent (page base) while the nights column carries a darker panel. */
+/* Shared padding on both columns keeps them symmetric and their headings
+   aligned; the days column is transparent (page base) while the nights
+   column carries the darker panel. */
 .portfolio-column {
-  padding-top: 2rem;
+  padding: 2rem 2.5rem 3rem;
 }
 
 .portfolio-column--nights {
   background-color: var(--portfolio-bg-nights);
-  /* Contained darker panel: inset from the page edge by the site padding,
-     with its own inner padding so nothing sits flush against its edges. */
-  padding: 2rem 2.5rem 3rem;
 }
 
 .portfolio-column-heading {
@@ -133,12 +131,12 @@
 
 .portfolio-subsection-label {
   margin-bottom: 1rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Cormorant Garamond", Times, serif;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: inherit;
+  color: var(--body-text-color);
 }
 
 .portfolio-see-all {
@@ -162,7 +160,7 @@
   gap: 1.5rem 2rem;
   /* Border on the list (not each post) so it spans the full container width
      even when a section has fewer than two posts. */
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--portfolio-item-border-color);
 }
 
@@ -205,13 +203,16 @@
 }
 
 .portfolio-post-title {
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 18px;
   line-height: 1.2;
+  /* Reserve two lines so single-line titles occupy the same height as
+     two-line titles, keeping post rows aligned. */
+  min-height: 2.4em;
   color: var(--body-text-color);
   display: -webkit-box;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   /* autoprefixer: ignore next */
   -webkit-box-orient: vertical;
   overflow: hidden;
