@@ -2,7 +2,6 @@ $(function () {
     'use strict';
     featured();
     pagination(false);
-    portfolioNav();
     tableOfContents();
 });
 
