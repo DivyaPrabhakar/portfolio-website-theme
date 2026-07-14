@@ -1,16 +1,29 @@
 {{!< default}}
 
-<main class="site-main">
-    {{#post}}
-        {{> "content" width="wide"}}
-    {{/post}}
+<main class="site-main post-layout">
 
-    {{#if @custom.show_related_posts}}
-        {{> "related-posts"}}
-    {{/if}}
+    <aside class="tag-sidebar post-sidebar">
+        <a class="tag-sidebar-name" href="{{@site.url}}/">Divya Prabhakar</a>
+        <a class="tag-back" href="{{@site.url}}/">&larr; Back to everything</a>
 
-    {{#post}}
-        {{> "comments"}}
-    {{/post}}
+        <nav class="post-toc" aria-label="On this page" hidden>
+            <p class="post-toc-label">On this page</p>
+            <ul class="post-toc-list"></ul>
+        </nav>
+    </aside>
+
+    <div class="post-main">
+        {{#post}}
+            {{> "content" width="wide"}}
+        {{/post}}
+
+        {{#if @custom.show_related_posts}}
+            {{> "related-posts"}}
+        {{/if}}
+
+        {{#post}}
+            {{> "comments"}}
+        {{/post}}
+    </div>
+
 </main>
-

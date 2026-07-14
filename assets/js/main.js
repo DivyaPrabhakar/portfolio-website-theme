@@ -56,7 +56,7 @@ function tableOfContents() {
             heading.scrollIntoView({behavior: 'smooth', block: 'start'});
             history.replaceState(null, '', '#' + id);
             container.classList.remove('is-open');
-            toggle.setAttribute('aria-expanded', 'false');
+            if (toggle) { toggle.setAttribute('aria-expanded', 'false'); }
         });
 
         item.appendChild(link);
@@ -68,10 +68,12 @@ function tableOfContents() {
     container.hidden = false;
 
     var toggle = container.querySelector('.post-toc-toggle');
-    toggle.addEventListener('click', function () {
-        var open = container.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    if (toggle) {
+        toggle.addEventListener('click', function () {
+            var open = container.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    }
 
     if ('IntersectionObserver' in window) {
         var visible = {};

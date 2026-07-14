@@ -29,13 +29,40 @@
   padding-block: 0;
 }
 
+.post-template .site-content,
+.post-template .site,
+.post-template .gh-head {
+  background-color: var(--portfolio-bg-days);
+}
+
 .post-template .site-main {
-  --content-width: 1200px;
-  grid-template-columns: 1fr;
-  max-width: calc(1200px + 7.2rem);
+  /* Widen both the reading column and the wide/full image container. */
+  --content-width: 960px;
+  --container-width: 1600px;
+  display: flex;
+  align-items: flex-start;
+  gap: 5rem;
+  max-width: calc(1600px + 12rem);
   margin-inline: auto;
   padding-block: 4rem;
-  padding-inline: 0;
+  padding-inline: 3rem;
+}
+
+.post-main {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .post-template .site-main {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .post-sidebar {
+    position: static;
+    width: 100%;
+  }
 }
 
 @media (max-width: 1280px) {
