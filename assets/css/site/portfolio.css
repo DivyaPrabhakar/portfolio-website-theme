@@ -79,7 +79,7 @@
 /* ── Two top-level columns (days / nights) ── */
 .portfolio-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   grid-template-rows: 1fr;
   column-gap: 11rem;
   /* Fill the remaining page height so the columns (and the darker nights
