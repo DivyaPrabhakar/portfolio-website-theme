@@ -4,7 +4,7 @@
 .tag-template .site,
 .tag-template .site-content,
 .tag-template .gh-head {
-  background-color: var(--portfolio-bg-days);
+  background-color: var(--color-bg);
 }
 
 .tag-template .site-main {
@@ -12,7 +12,7 @@
   align-items: flex-start;
   gap: 11rem;
   padding: 5rem 8rem;
-  color: var(--body-text-color);
+  color: var(--color-text);
 }
 
 /* ── Sidebar ── */
@@ -26,25 +26,25 @@
 }
 
 .tag-sidebar-name {
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   font-size: 26px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.01em;
-  color: var(--body-text-color);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 .tag-back {
   margin-top: 0.4rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
-  color: var(--text-tertiary-highlight-color);
+  color: var(--color-text-muted);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .tag-back:hover {
-  color: var(--text-secondary-highlight-color);
+  color: var(--color-accent);
 }
 
 .tag-nav {
@@ -55,12 +55,12 @@
 
 .tag-nav-group {
   margin: 3.5rem 0 0.6rem 0;
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--text-tertiary-highlight-color);
+  color: var(--color-text-muted);
   text-wrap: pretty;
 }
 
@@ -75,37 +75,37 @@
   gap: 1rem;
   padding: 0.3rem 0;
   text-decoration: none;
-  color: var(--body-text-color);
+  color: var(--color-text);
 }
 
 .tag-nav-item-label {
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--body-text-color);
+  color: var(--color-text);
   transition: color 0.15s ease;
 }
 
 .tag-nav-item:hover .tag-nav-item-label {
-  color: var(--text-secondary-highlight-color);
+  color: var(--color-accent);
 }
 
 .tag-nav-item-count {
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
-  color: var(--text-tertiary-highlight-color);
+  color: var(--color-text-muted);
 }
 
 .tag-nav-item--active .tag-nav-item-label {
-  font-weight: 700;
-  color: var(--text-secondary-highlight-color);
+  font-weight: 500;
+  color: var(--color-accent);
 }
 
 .tag-nav-item--active .tag-nav-item-count {
-  font-weight: 700;
-  color: var(--text-secondary-highlight-color);
+  font-weight: 500;
+  color: var(--color-accent);
 }
 
 /* ── Main column ── */
@@ -120,41 +120,41 @@
   gap: 0.6rem;
   align-items: baseline;
   margin: 0 0 1.25rem 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--text-tertiary-highlight-color);
+  color: var(--color-text-muted);
 }
 
 .tag-breadcrumb-current {
-  color: var(--text-secondary-highlight-color);
+  color: var(--color-accent);
 }
 
 .tag-title {
   margin: 0;
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   font-size: 50px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: capitalize;
-  color: var(--body-text-color);
+  color: var(--color-text);
 }
 
 .tag-rule {
   margin: 2.5rem 0 1.25rem 0;
   border: none;
-  border-top: 1px solid #e2dac8;
+  border-top: 1px solid var(--color-border);
 }
 
 .tag-count {
   margin: 0 0 2.5rem 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--text-tertiary-highlight-color);
+  color: var(--color-text-muted);
 }
 
 /* ── Post list ── */
@@ -168,7 +168,7 @@
   gap: 2.5rem;
   align-items: flex-start;
   padding: 2rem 0 2.5rem 0;
-  border-bottom: 1px solid #e6ddcb;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .tag-post-media {
@@ -181,7 +181,7 @@
   justify-content: center;
   gap: 0.4rem;
   border-radius: 2px;
-  background-color: #efe9dc;
+  background-color: var(--color-surface);
   overflow: hidden;
   text-decoration: none;
 }
@@ -197,7 +197,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.3rem;
-  color: #9a9082;
+  color: var(--color-text-muted);
 }
 
 .tag-post-media-icon {
@@ -206,15 +206,15 @@
 }
 
 .tag-post-media-label {
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   font-size: 18px;
-  color: #7d7469;
+  color: var(--color-text-soft);
 }
 
 .tag-post-media-sub {
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
-  color: var(--text-tertiary-highlight-color);
+  color: var(--color-text-muted);
 }
 
 .tag-post-media-link {
@@ -233,11 +233,11 @@
 
 .tag-post-title {
   margin: 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 28px;
   font-weight: 600;
   line-height: 1.15;
-  color: var(--body-text-color);
+  color: var(--color-text);
 }
 
 .tag-post-title-link:hover .tag-post-title {
@@ -247,10 +247,10 @@
 .tag-post-excerpt {
   margin: 0.6rem 0 0 0;
   max-width: 34rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.5;
-  color: #4f4740;
+  color: var(--color-text-soft);
   text-wrap: pretty;
 }
 
@@ -296,12 +296,12 @@
 /* ── Post page sidebar: table of contents (reuses .tag-sidebar) ── */
 .post-toc-label {
   margin: 3.5rem 0 0.9rem 0;
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--text-tertiary-highlight-color);
+  color: var(--color-text-muted);
 }
 
 .post-toc-list {
@@ -319,24 +319,24 @@
 .post-toc-link {
   display: block;
   padding: 0.3rem 0;
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1.3;
-  color: var(--body-text-color);
+  color: var(--color-text);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .post-toc-link:hover {
-  color: var(--text-secondary-highlight-color);
+  color: var(--color-accent);
 }
 
 .post-toc-link.active {
-  font-weight: 700;
-  color: var(--text-secondary-highlight-color);
+  font-weight: 500;
+  color: var(--color-accent);
 }
 
 /* ── Nights tag pages: dark oxblood ground with light text ── */
@@ -344,25 +344,14 @@
 .tag-template.is-nights-tag .site,
 .tag-template.is-nights-tag .site-content,
 .tag-template.is-nights-tag .gh-head {
-  background-color: var(--portfolio-bg-nights);
+  background-color: var(--color-bg-dark);
 }
 
 .tag-template.is-nights-tag .site-main {
-  color: var(--portfolio-bg-days);
-  --body-text-color: var(--portfolio-bg-days);
-  --portfolio-muted-warm: #b7b1c8;
-  --text-tertiary-highlight-color: #b7b1c8;
-  --text-secondary-highlight-color: #e2c2ca;
-}
-
-.tag-template.is-nights-tag .tag-rule {
-  border-top-color: rgba(255, 253, 250, 0.16);
-}
-
-.tag-template.is-nights-tag .tag-post {
-  border-bottom-color: rgba(255, 253, 250, 0.12);
-}
-
-.tag-template.is-nights-tag .tag-post-excerpt {
-  color: #cfc9c0;
+  color: var(--color-bg);
+  --color-text: var(--color-bg);
+  --color-text-soft: var(--color-nights-soft);
+  --color-text-muted: var(--color-nights-muted);
+  --color-accent: var(--color-nights-accent);
+  --color-border: var(--color-nights-border);
 }

@@ -9,9 +9,9 @@
   display: flex;
   flex-direction: column;
   padding: 0;
-  font-size: var(--body-text-size);
-  color: var(--body-text-color);
-  background-color: var(--bg-color);
+  font-size: var(--font-body-size);
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 .site-main {
@@ -32,7 +32,7 @@
 .post-template .site-content,
 .post-template .site,
 .post-template .gh-head {
-  background-color: var(--portfolio-bg-days);
+  background-color: var(--color-bg);
 }
 
 .post-template .site-main {

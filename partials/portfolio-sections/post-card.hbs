@@ -1,11 +1,9 @@
 <a href="{{url}}" class="portfolio-post-item">
-  <span class="portfolio-post-thumb">
-    {{#if feature_image}}
+  {{#if feature_image}}
+    <span class="portfolio-post-thumb">
       <img srcset="{{> srcset}}" sizes="120px" src="{{img_url feature_image size="s"}}" alt="{{title}}" />
-    {{else}}
-      <span class="portfolio-post-thumb--empty" aria-hidden="true"></span>
-    {{/if}}
-  </span>
+    </span>
+  {{/if}}
   <span class="portfolio-post-text">
     <span class="portfolio-post-title">{{title}}</span>
     <span class="portfolio-post-excerpt">{{excerpt words="20"}}</span>

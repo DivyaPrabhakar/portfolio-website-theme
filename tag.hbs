@@ -38,7 +38,7 @@
     </p>
 
     <div class="tag-post-list">
-      {{#get "posts" filter="tag:{{slug}}" limit="all" include="tags" order="featured desc, published_at desc" as |tagposts|}}
+      {{#get "posts" filter="tag:{{slug}}" limit="100" include="tags" order="featured desc, published_at desc" as |tagposts|}}
         {{#foreach tagposts}}{{> "portfolio-sections/tag-post"}}{{/foreach}}
       {{/get}}
     </div>

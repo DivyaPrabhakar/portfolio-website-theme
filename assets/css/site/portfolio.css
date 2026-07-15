@@ -1,18 +1,30 @@
-/* CSS variables used across the portfolio */
+/* Design tokens — every color/type value lives here so it changes in one place. */
 :root {
-  --bg-color: #fcfcfc;
-  --link-color: #1c30e7;
-  --body-text-size: 14px;
-  --navigation-text-size: 16px;
-  --navigation-text-size-mobile: 20px;
-  --body-text-color: #2c2825;
-  --text-secondary-highlight-color: #ee314b;
-  --text-tertiary-highlight-color: #9e9189;
-  --portfolio-divider-color: #d9d2c5;
-  --portfolio-item-border-color: #ece3d2;
-  --portfolio-bg-days: #fffdfa;
-  --portfolio-bg-nights: #1d0303;
-  --portfolio-muted-warm: #7a5a37;
+  /* Type */
+  --font-display: "Archivo", sans-serif;
+  --font-body: "Archivo", sans-serif;
+  --font-body-size: 14px;
+
+  /* Surfaces */
+  --color-bg: #fffaf1;          /* page background (light) */
+  --color-bg-dark: #231728;     /* nights / dark panel */
+  --color-surface: #efe9dc;     /* raised tiles (media / placeholder boxes) */
+
+  /* Text */
+  --color-text: #2c2825;        /* primary ink */
+  --color-text-soft: #574a3c;   /* excerpts / descriptions */
+  --color-text-muted: #9e9189;  /* labels, meta, counts, secondary links */
+
+  /* Accent + lines */
+  --color-accent: #5a84ac;      /* highlight / active / current */
+  --color-link: #7c9eb2;        /* inline text links */
+  --color-border: #e6ddcb;      /* hairline rules & dividers */
+
+  /* Nights (dark) theme text tones — override the semantic vars in that scope */
+  --color-nights-soft: #cfc9c0;
+  --color-nights-muted: #b7b1c8;
+  --color-nights-accent: #e2c2ca;
+  --color-nights-border: rgba(255, 253, 250, 0.14);
 }
 
 /* ── Homepage: warm cream base, and neutralize the shared grid on .site-main ── */
@@ -22,7 +34,7 @@
 .home-template .site,
 .home-template .site-content,
 .home-template .gh-head {
-  background-color: var(--portfolio-bg-days);
+  background-color: var(--color-bg);
 }
 
 .home-template .site-main {
@@ -45,7 +57,7 @@
 }
 
 .portfolio-name {
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   white-space: nowrap;
   flex-shrink: 0;
   margin: 0 3rem 0 0;
@@ -55,7 +67,7 @@
 
 .portfolio-role {
   margin: 0.75rem 0 0 0;
-  color: var(--body-text-color);
+  color: var(--color-text);
 }
 
 .portfolio-tagline {
@@ -65,10 +77,10 @@
   max-width: 100%;
   margin-top: 0;
   text-align: left;
-  font-family: "Cormorant Garamond", Times, serif;
-  font-size: 20px;
+  font-family: var(--font-display);
+  font-size: 16px;
   line-height: 1.35;
-  color: var(--body-text-color);
+  color: var(--color-text);
 }
 
 .portfolio-tagline p {
@@ -96,28 +108,29 @@
 }
 
 .portfolio-column--nights {
-  background-color: var(--portfolio-bg-nights);
+  background-color: var(--color-bg-dark);
   /* Inner side padding so the panel's text isn't flush against its edges. */
   padding-left: 4rem;
   padding-right: 4rem;
   /* Dark panel: flip text light and lighten accents so they read on the navy.
      Scoped via `color` + redefined vars so only this column changes. */
-  color: var(--portfolio-bg-days);
-  --body-text-color: var(--portfolio-bg-days);
-  --portfolio-muted-warm: #b7b1c8;
-  --text-tertiary-highlight-color: #b7b1c8;
-  --text-secondary-highlight-color: #e2c2ca;
+  color: var(--color-bg);
+  --color-text: var(--color-bg);
+  --color-text-soft: var(--color-nights-soft);
+  --color-text-muted: var(--color-nights-muted);
+  --color-accent: var(--color-nights-accent);
 }
 
 .portfolio-column--nights .portfolio-column-heading {
-  color: var(--portfolio-bg-days);
+  color: var(--color-bg);
 }
 
 .portfolio-column-heading {
-  font-family: "Cormorant Garamond", Times, serif;
-  font-size: 32px;
+  font-family: var(--font-display);
+  font-size: 24px;
   letter-spacing: -0.01em;
   margin: 0 0 5rem 0;
+  color: #000000;
 }
 
 /* ── Nights subsections stack vertically, like the days column ── */
@@ -135,23 +148,23 @@
   align-items: baseline;
   gap: 0.6rem;
   margin-bottom: 2rem;
-  color: var(--text-secondary-highlight-color);
+  color: var(--color-accent);
 }
 
 .portfolio-subsection-label {
   margin-bottom: 1rem;
-  font-family: "Cormorant Garamond", Times, serif;
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--body-text-color);
+  color: var(--color-text);
 }
 
 .portfolio-see-all {
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
-  color: var(--text-tertiary-highlight-color);
+  color: var(--color-link);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -165,7 +178,7 @@
 }
 
 .portfolio-see-all:hover {
-  color: var(--text-secondary-highlight-color);
+  color: var(--color-accent);
   text-decoration: underline;
 }
 
@@ -204,15 +217,6 @@
   border-radius: 4px;
 }
 
-.portfolio-post-thumb--empty {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 1px dashed #c9c1b4;
-  border-radius: 4px;
-  background: #f0ece2;
-}
-
 .portfolio-post-text {
   display: flex;
   flex-direction: column;
@@ -222,12 +226,12 @@
 }
 
 .portfolio-post-title {
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.2;
   /* Always a single line; truncate with an ellipsis if it overflows. */
   min-height: 1.2em;
-  color: var(--body-text-color);
+  color: var(--color-text);
   display: -webkit-box;
   -webkit-line-clamp: 1;
   line-clamp: 1;
@@ -243,7 +247,7 @@
 .portfolio-post-excerpt {
   margin: 0.2rem 0 0 0;
   font-size: 12px;
-  color: var(--portfolio-muted-warm);
+  color: var(--color-text-soft);
   display: -webkit-box;
   -webkit-line-clamp: 1;
   line-clamp: 1;
@@ -255,8 +259,8 @@
 /* ── Generic link (used outside the homepage too) ── */
 .portfolio-link {
   text-decoration: none;
-  font-weight: 700;
-  color: var(--text-secondary-highlight-color);
+  font-weight: 500;
+  color: var(--color-link);
   transition: color 0.15s ease;
 }
 

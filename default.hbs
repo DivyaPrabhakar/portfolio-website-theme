@@ -9,7 +9,10 @@
     <title>{{meta_title}}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=archivo@400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
 
     {{ghost_head}}
@@ -34,11 +37,6 @@
                         <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                     {{/match}}
                 {{/unless}}
-                {{#is "index"}}
-                <div class="gh-head-portfolio-nav">
-                    {{> "portfolio-nav"}}
-                </div>
-                {{/is}}
             </nav>
             
         </div>

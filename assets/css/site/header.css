@@ -1,5 +1,5 @@
 .gh-head {
-  background-color: var(--bg-color);
+  background-color: var(--color-bg);
   height: 2rem;
 }
 
@@ -12,10 +12,6 @@
 .gh-head-menu,
 .gh-head-actions {
   font-family: "DM Sans", sans-serif;
-}
-
-.gh-head-portfolio-nav {
-  display: none;
 }
 
 @media (min-width: 768px) {
@@ -45,39 +41,7 @@
     grid-template-columns: auto auto auto 1fr;
   }
 
-  /* Hidden on the landing hero; revealed only after a nav selection via body class */
   .gh-head-brand-wrapper {
     display: none;
-  }
-
-body.mobile-section-active .gh-head-logo {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--body-text-color);
-    letter-spacing: -0.01em;
-    white-space: nowrap;
-    text-decoration: none;
-  }
-
-  .gh-head-portfolio-nav {
-    display: block;
-    width: 100%;
-    background-color: #f8f6f0;
-    border-radius: 6px;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
-
-  .portfolio-sidebar-label {
-    font-size: var(--navigation-text-size-mobile);
-  }
-
-  .gh-head-portfolio-nav .portfolio-nav-group-header,
-  .gh-head-portfolio-nav .portfolio-nav-item {
-    font-size: var(--navigation-text-size-mobile);
-    font-weight: normal;
-    text-transform: none;
-    display: block;
-    width: 100%;
   }
 }

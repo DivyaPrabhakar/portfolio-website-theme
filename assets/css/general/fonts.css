@@ -1,4 +1,4 @@
-/* Fonts are loaded from Google Fonts in default.hbs <head>:
-   - Cormorant Garamond 300, 400, 300 italic (serif — used only for .portfolio-name)
-   - DM Sans 300, 400 (sans-serif — used for everything else)
+/* Fonts are loaded in default.hbs <head>:
+   - Archivo 400–700 from Fontshare (both --font-display and --font-body)
+   - DM Sans from Google Fonts (only the top header logo/menu)
    Local Mulish/Lora @font-face declarations removed. */
