@@ -45,7 +45,7 @@
           <span class="portfolio-subsection-label">Observing</span>
           <a class="portfolio-see-all" href="/tag/observing/">See all</a>
         </div>
-        <div class="portfolio-item-list">
+        <div class="portfolio-item-list portfolio-item-list--articles">
           {{#get "posts" limit="2" filter="tag:observing" order="published_at desc" as |posts|}}
             {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
           {{/get}}

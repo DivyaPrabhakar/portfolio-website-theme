@@ -176,6 +176,11 @@
   gap: 1.5rem;
 }
 
+/* Article sections: text-only rows (no thumbnail) to signal writing. */
+.portfolio-item-list--articles .portfolio-post-thumb {
+  display: none;
+}
+
 .portfolio-post-item {
   display: flex;
   gap: 1rem;
