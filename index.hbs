@@ -54,11 +54,11 @@
 
       <div class="portfolio-subsection">
         <div class="portfolio-subsection-head">
-          <span class="portfolio-subsection-label">Visualizing</span>
-          <a class="portfolio-see-all" href="/tag/visualizing/">See all</a>
+          <span class="portfolio-subsection-label">Using AI for</span>
+          <a class="portfolio-see-all" href="/tag/using-ai-for/">See all</a>
         </div>
         <div class="portfolio-item-list">
-          {{#get "posts" limit="2" filter="tag:visualizing" order="published_at desc" as |posts|}}
+          {{#get "posts" limit="2" filter="tag:using-ai-for" order="published_at desc" as |posts|}}
             {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
           {{/get}}
         </div>
@@ -73,23 +73,11 @@
 
         <div class="portfolio-subsection">
           <div class="portfolio-subsection-head">
-            <span class="portfolio-subsection-label">Curating</span>
-            <a class="portfolio-see-all" href="/tag/curating/">See all</a>
+            <span class="portfolio-subsection-label">Visualizing</span>
+            <a class="portfolio-see-all" href="/tag/visualizing/">See all</a>
           </div>
           <div class="portfolio-item-list">
-            {{#get "posts" limit="2" filter="tag:curating" order="published_at desc" as |posts|}}
-              {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-            {{/get}}
-          </div>
-        </div>
-
-        <div class="portfolio-subsection">
-          <div class="portfolio-subsection-head">
-            <span class="portfolio-subsection-label">Organizing</span>
-            <a class="portfolio-see-all" href="/tag/organizing/">See all</a>
-          </div>
-          <div class="portfolio-item-list">
-            {{#get "posts" limit="2" filter="tag:organizing" order="published_at desc" as |posts|}}
+            {{#get "posts" limit="2" filter="tag:visualizing" order="published_at desc" as |posts|}}
               {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
             {{/get}}
           </div>
@@ -109,11 +97,11 @@
 
         <div class="portfolio-subsection">
           <div class="portfolio-subsection-head">
-            <span class="portfolio-subsection-label">Using AI for</span>
-            <a class="portfolio-see-all" href="/tag/using-ai-for/">See all</a>
+            <span class="portfolio-subsection-label">Organizing</span>
+            <a class="portfolio-see-all" href="/tag/organizing/">See all</a>
           </div>
           <div class="portfolio-item-list">
-            {{#get "posts" limit="2" filter="tag:using-ai-for" order="published_at desc" as |posts|}}
+            {{#get "posts" limit="2" filter="tag:organizing" order="published_at desc" as |posts|}}
               {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
             {{/get}}
           </div>
