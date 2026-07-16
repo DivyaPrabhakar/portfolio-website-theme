@@ -4,6 +4,8 @@
   --font-display: "Archivo", sans-serif;
   --font-body: "Archivo", sans-serif;
   --font-body-size: 14px;
+  --font-size-label: 14px;      /* section labels + See-all */
+  --layout-sidebar-gap: 11rem;  /* gap between sidebar & main (tag + post pages) */
 
   /* Surfaces */
   --color-bg: #fffaf1;          /* page background (light) */
@@ -11,6 +13,7 @@
   --color-surface: #efe9dc;     /* raised tiles (media / placeholder boxes) */
 
   /* Text */
+  --color-heading: #000000;     /* column headings & section labels */
   --color-text: #2c2825;        /* primary ink */
   --color-text-soft: #574a3c;   /* excerpts / descriptions */
   --color-text-muted: #9e9189;  /* labels, meta, counts, secondary links */
@@ -62,7 +65,8 @@
   flex-shrink: 0;
   margin: 0 3rem 0 0;
   font-size: 40px;
-  letter-spacing: 0.02em;
+  line-height: 1;
+  letter-spacing: 0;
 }
 
 .portfolio-role {
@@ -115,22 +119,20 @@
   /* Dark panel: flip text light and lighten accents so they read on the navy.
      Scoped via `color` + redefined vars so only this column changes. */
   color: var(--color-bg);
+  --color-heading: var(--color-bg);
   --color-text: var(--color-bg);
   --color-text-soft: var(--color-nights-soft);
   --color-text-muted: var(--color-nights-muted);
   --color-accent: var(--color-nights-accent);
 }
 
-.portfolio-column--nights .portfolio-column-heading {
-  color: var(--color-bg);
-}
-
 .portfolio-column-heading {
   font-family: var(--font-display);
   font-size: 24px;
-  letter-spacing: -0.01em;
+  font-weight: 300;
+  letter-spacing: 0;
   margin: 0 0 5rem 0;
-  color: #000000;
+  color: var(--color-heading);
 }
 
 /* ── Nights subsections stack vertically, like the days column ── */
@@ -145,6 +147,7 @@
 
 .portfolio-subsection-head {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
   gap: 0.6rem;
   margin-bottom: 2rem;
@@ -154,16 +157,16 @@
 .portfolio-subsection-label {
   margin-bottom: 1rem;
   font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: var(--font-size-label);
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-text);
+  letter-spacing: 0.1em;
+  color: var(--color-heading);
 }
 
 .portfolio-see-all {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: var(--font-size-label);
   color: var(--color-link);
   text-decoration: none;
   white-space: nowrap;
@@ -172,8 +175,8 @@
 }
 
 .portfolio-see-all::after {
-  content: "→";
-  margin-left: 0.3rem;
+  /* NBSP + arrow (not margin) so the hover underline stays continuous. */
+  content: "\00A0→";
   font-size: 1.1em;
 }
 
@@ -228,10 +231,11 @@
 .portfolio-post-title {
   font-family: var(--font-body);
   font-size: 18px;
+  font-weight: 300;
   line-height: 1.2;
   /* Always a single line; truncate with an ellipsis if it overflows. */
   min-height: 1.2em;
-  color: var(--color-text);
+  color: var(--color-heading);
   display: -webkit-box;
   -webkit-line-clamp: 1;
   line-clamp: 1;
@@ -246,8 +250,9 @@
 
 .portfolio-post-excerpt {
   margin: 0.2rem 0 0 0;
-  font-size: 12px;
-  color: var(--color-text-soft);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-heading);
   display: -webkit-box;
   -webkit-line-clamp: 1;
   line-clamp: 1;
@@ -277,6 +282,12 @@
 
   .portfolio-column--nights {
     margin-top: 2.5rem;
+    /* Full-bleed the dark panel to the screen edges (site-main clips overflow);
+       text stays inset by the page padding to align with the days column. */
+    margin-left: calc(-1 * var(--page-pad-x));
+    margin-right: calc(-1 * var(--page-pad-x));
+    padding-left: var(--page-pad-x);
+    padding-right: var(--page-pad-x);
   }
 }
 
