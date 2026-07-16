@@ -25,6 +25,26 @@
   overflow-x: clip;
 }
 
+/* Shared two-column "sidebar + main" layout (tag archive + post pages).
+   Higher specificity than the base .site-main grid so it wins the cascade.
+   All container metrics (gap, max-width, padding) live here once so both
+   pages lay out and respond identically. */
+.site-main.sidebar-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--layout-sidebar-gap);
+  max-width: calc(1600px + 12rem);
+  margin-inline: auto;
+  padding: 4rem 3rem;
+}
+
+/* Off-canvas drawer chrome is hidden until the layout collapses (see below). */
+.sidebar-toggle,
+.sidebar-close,
+.sidebar-overlay {
+  display: none;
+}
+
 .page-template .site-content {
   padding-block: 0;
 }
@@ -36,16 +56,10 @@
 }
 
 .post-template .site-main {
-  /* Widen both the reading column and the wide/full image container. */
+  /* Widen both the reading column and the wide/full image container.
+     Layout metrics (max-width, margin, padding) come from .sidebar-layout. */
   --content-width: 960px;
   --container-width: 1600px;
-  display: flex;
-  align-items: flex-start;
-  gap: 5rem;
-  max-width: calc(1600px + 12rem);
-  margin-inline: auto;
-  padding-block: 4rem;
-  padding-inline: 3rem;
 }
 
 .post-main {
@@ -53,25 +67,135 @@
   min-width: 0;
 }
 
-@media (max-width: 900px) {
-  .post-template .site-main {
-    flex-direction: column;
-    gap: 2rem;
-  }
+/* Left-align the post header (title + excerpt); the base theme centers it. */
+.post-main .single-header {
+  text-align: left;
+}
 
-  .post-sidebar {
-    position: static;
-    width: 100%;
+/* ── Shared responsive behavior for the sidebar layout (tag + post) ── */
+@media (max-width: 1100px) {
+  .site-main.sidebar-layout {
+    --layout-sidebar-gap: 3rem;
   }
 }
 
+/* Below this width the sidebar collapses into a left off-canvas drawer that
+   slides in over the content; the main column takes the full width. Defined
+   once so both pages collapse identically. */
+@media (max-width: 900px) {
+  /* The layout stays a flex row: the toggle is a small in-flow left column and
+     the main content sits beside it, so align-items:flex-start top-aligns the
+     toggle with the page title. The drawer (.sidebar) is taken out of flow
+     (fixed) so it no longer occupies a column. */
+
+  /* Scoped under the layout so these win over the base .sidebar component
+     rules (which load later, from tag-archive.css) at equal specificity. */
+  .site-main.sidebar-layout .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 60;
+    width: min(86vw, 22rem);
+    padding: 2.5rem;
+    background-color: var(--color-bg);
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+  }
+
+  .tag-template.is-nights-tag .sidebar {
+    background-color: var(--color-bg-dark);
+  }
+
+  .site-main.sidebar-layout.is-nav-open .sidebar {
+    transform: translateX(0);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease;
+  }
+
+  .site-main.sidebar-layout.is-nav-open .sidebar-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* In-flow left column, top-aligned with the page title via the row's
+     align-items: flex-start. */
+  .sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: var(--font-size-label);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+  }
+
+  .sidebar-toggle-icon,
+  .sidebar-toggle-icon::before,
+  .sidebar-toggle-icon::after {
+    content: "";
+    display: block;
+    width: 1.25rem;
+    height: 2px;
+    background-color: currentColor;
+  }
+
+  .sidebar-toggle-icon {
+    position: relative;
+  }
+
+  .sidebar-toggle-icon::before {
+    position: absolute;
+    top: -6px;
+  }
+
+  .sidebar-toggle-icon::after {
+    position: absolute;
+    top: 6px;
+  }
+
+  .sidebar-close {
+    display: block;
+    align-self: flex-end;
+    margin: -0.5rem -0.5rem 0.5rem auto;
+    padding: 0.25rem 0.5rem;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--color-text);
+  }
+}
+
+@media (max-width: 640px) {
+  .site-main.sidebar-layout {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* ── Base .site-main (non-sidebar templates: author, page, custom-*) ── */
 @media (max-width: 1280px) {
   .site-main {
     padding: 5rem 6rem;
-  }
-
-  .post-template .site-main {
-    padding-block: 4rem;
   }
 }
 
@@ -84,10 +208,5 @@
     grid-template-columns: 1fr;
     padding: 2rem 1.5rem;
     gap: 1.5rem;
-  }
-
-  .post-template .site-main {
-    max-width: none;
-    padding: 2rem 1.5rem;
   }
 }

@@ -1,4 +1,4 @@
-<a class="tag-nav-item{{#match current slug}} tag-nav-item--active{{/match}}" href="{{@site.url}}/tag/{{slug}}/">
-  <span class="tag-nav-item-label">{{label}}</span>
-  <span class="tag-nav-item-count">{{#get "posts" filter="tag:{{slug}}" limit="1"}}{{pagination.total}}{{/get}}</span>
-</a>
+<li class="sidebar-nav-item{{#match current slug}} is-active{{/match}}">
+  <a class="sidebar-nav-link" href="{{@site.url}}/tag/{{slug}}/">{{label}}</a>
+  <span class="sidebar-nav-count">{{#get "posts" filter="tag:{{slug}}" limit="1"}}{{pagination.total}}{{/get}}</span>
+</li>

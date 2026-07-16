@@ -1,34 +1,36 @@
 {{!< default}}
-{{#tag}}{{#match slug "curating"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "organizing"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "using-ai-for"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "not-using-ai-for"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{/match}}{{/tag}}
-<main class="site-main tag-archive">
+{{#tag}}{{#match slug "visualizing"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "not-using-ai-for"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "organizing"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{else match slug "curating"}}{{#contentFor "body_class"}} is-nights-tag{{/contentFor}}{{/match}}{{/tag}}
+<main class="site-main sidebar-layout tag-archive">
 
-  <aside class="tag-sidebar">
-    <a class="tag-sidebar-name" href="{{@site.url}}/">Divya Prabhakar</a>
-    <a class="tag-back" href="{{@site.url}}/">&larr; Back to everything</a>
+  <button class="sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="false">
+    <span class="sidebar-toggle-icon" aria-hidden="true"></span>
+    Menu
+  </button>
 
-    <nav class="tag-nav">
-      <p class="tag-nav-group">Spending my days on</p>
-      {{> "tag-nav-item" slug="designing" label="Designing" current=tag.slug}}
-      {{> "tag-nav-item" slug="developing" label="Developing" current=tag.slug}}
-      {{> "tag-nav-item" slug="observing" label="Observing" current=tag.slug}}
-      {{> "tag-nav-item" slug="visualizing" label="Visualizing" current=tag.slug}}
+  <aside class="sidebar" id="sidebar">
+    {{> "sidebar-header"}}
 
-      <p class="tag-nav-group">Spending my nights on</p>
-      {{> "tag-nav-item" slug="curating" label="Curating" current=tag.slug}}
-      {{> "tag-nav-item" slug="organizing" label="Organizing" current=tag.slug}}
-      {{> "tag-nav-item" slug="using-ai-for" label="Using AI for" current=tag.slug}}
-      {{> "tag-nav-item" slug="not-using-ai-for" label="Not using AI for" current=tag.slug}}
+    <nav class="sidebar-nav" id="tag-nav">
+      <p class="sidebar-nav-heading">Spending my days on</p>
+      <ul class="sidebar-nav-list">
+        {{> "tag-nav-item" slug="designing" label="Designing" current=tag.slug}}
+        {{> "tag-nav-item" slug="observing" label="Observing" current=tag.slug}}
+        {{> "tag-nav-item" slug="using-ai-for" label="Using AI for" current=tag.slug}}
+      </ul>
+
+      <p class="sidebar-nav-heading">Spending my nights on</p>
+      <ul class="sidebar-nav-list">
+        {{> "tag-nav-item" slug="visualizing" label="Visualizing" current=tag.slug}}
+        {{> "tag-nav-item" slug="not-using-ai-for" label="Not using AI for" current=tag.slug}}
+        {{> "tag-nav-item" slug="organizing" label="Organizing" current=tag.slug}}
+      </ul>
     </nav>
   </aside>
 
+  <div class="sidebar-overlay" aria-hidden="true"></div>
+
   <div class="tag-main">
     {{#tag}}
-    <p class="tag-breadcrumb">
-      <span>{{#match slug "designing"}}Spending my days on{{else match slug "developing"}}Spending my days on{{else match slug "observing"}}Spending my days on{{else match slug "visualizing"}}Spending my days on{{else}}Spending my nights on{{/match}}</span>
-      <span class="tag-breadcrumb-sep">/</span>
-      <span class="tag-breadcrumb-current">{{name}}</span>
-    </p>
-
     <h1 class="tag-title">{{name}}</h1>
 
     <hr class="tag-rule" />

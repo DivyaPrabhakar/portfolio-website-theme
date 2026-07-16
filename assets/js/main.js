@@ -3,11 +3,53 @@ $(function () {
     featured();
     pagination(false);
     tableOfContents();
+    sidebarNav();
 });
+
+function sidebarNav() {
+    'use strict';
+    var layout = document.querySelector('.site-main.sidebar-layout');
+    if (!layout) return;
+    var toggle = layout.querySelector('.sidebar-toggle');
+    if (!toggle) return;
+
+    var sidebar = layout.querySelector('.sidebar');
+    var closeBtn = layout.querySelector('.sidebar-close');
+    var overlay = layout.querySelector('.sidebar-overlay');
+
+    function open() {
+        layout.classList.add('is-nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+    function close() {
+        layout.classList.remove('is-nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', function () {
+        if (layout.classList.contains('is-nav-open')) { close(); } else { open(); }
+    });
+    if (closeBtn) { closeBtn.addEventListener('click', close); }
+    if (overlay) { overlay.addEventListener('click', close); }
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { close(); }
+    });
+    // Close after choosing a destination (tag link, TOC anchor, or the name/back links).
+    if (sidebar) {
+        sidebar.addEventListener('click', function (e) {
+            if (e.target.closest('a')) { close(); }
+        });
+    }
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) { close(); }
+    });
+}
 
 function tableOfContents() {
     'use strict';
-    var container = document.querySelector('.post-toc');
+    var container = document.querySelector('#post-toc');
     var content = document.querySelector('.gh-content');
     if (!container || !content) return;
 
@@ -26,9 +68,9 @@ function tableOfContents() {
             .replace(/^-+|-+$/g, '');
     }
 
-    var list = container.querySelector('.post-toc-list');
+    var list = container.querySelector('.sidebar-nav-list');
     var usedIds = {};
-    var links = [];
+    var items = [];
     var targets = [];
 
     headings.forEach(function (heading) {
@@ -44,54 +86,58 @@ function tableOfContents() {
         }
         usedIds[id] = true;
 
+        // Shared sidebar-nav markup so the TOC matches the tag nav exactly.
         var item = document.createElement('li');
-        item.className = 'post-toc-item post-toc-item-' + heading.tagName.toLowerCase();
+        item.className = 'sidebar-nav-item';
+        if (heading.tagName.toLowerCase() === 'h3') {
+            item.className += ' sidebar-nav-item--sub';
+        }
 
         var link = document.createElement('a');
-        link.className = 'post-toc-link';
+        link.className = 'sidebar-nav-link';
         link.href = '#' + id;
         link.textContent = heading.textContent;
         link.addEventListener('click', function (e) {
             e.preventDefault();
             heading.scrollIntoView({behavior: 'smooth', block: 'start'});
             history.replaceState(null, '', '#' + id);
-            container.classList.remove('is-open');
-            if (toggle) { toggle.setAttribute('aria-expanded', 'false'); }
         });
 
         item.appendChild(link);
         list.appendChild(item);
-        links.push(link);
+        items.push(item);
         targets.push(heading);
     });
 
     container.hidden = false;
 
-    var toggle = container.querySelector('.post-toc-toggle');
-    if (toggle) {
-        toggle.addEventListener('click', function () {
-            var open = container.classList.toggle('is-open');
-            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // Scrollspy: keep exactly one item active at all times (the section you're
+    // currently reading), so the post TOC selection persists like the tag nav's.
+    var ticking = false;
+    function syncActive() {
+        ticking = false;
+        var offset = 140;
+        var current = 0;
+        for (var i = 0; i < targets.length; i++) {
+            if (targets[i].getBoundingClientRect().top - offset <= 0) {
+                current = i;
+            } else {
+                break;
+            }
+        }
+        items.forEach(function (it, i) {
+            it.classList.toggle('is-active', i === current);
         });
     }
-
-    if ('IntersectionObserver' in window) {
-        var visible = {};
-        var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                visible[entry.target.id] = entry.isIntersecting;
-            });
-            var activeIndex = -1;
-            for (var i = 0; i < targets.length; i++) {
-                if (visible[targets[i].id]) { activeIndex = i; break; }
-            }
-            links.forEach(function (l, i) {
-                l.classList.toggle('active', i === activeIndex);
-            });
-        }, {rootMargin: '-10% 0px -70% 0px'});
-
-        targets.forEach(function (target) { observer.observe(target); });
+    function requestSync() {
+        if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(syncActive);
+        }
     }
+    window.addEventListener('scroll', requestSync, {passive: true});
+    window.addEventListener('resize', requestSync, {passive: true});
+    syncActive();
 }
 
 function portfolioNav() {
