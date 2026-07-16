@@ -25,25 +25,19 @@
 .single-title {
   margin-bottom: 0;
   word-break: break-word;
+  /* Same Archivo variable as .tag-post-title. */
+  font-family: var(--font-body);
 }
 
-.has-serif-title:not([class*=" gh-font-heading"]):not(
-    [class^="gh-font-heading"]
-  )
-  .single-title {
-  font-family: var(--gh-font-heading, var(--font-serif));
-}
-
+/* Same styling as .tag-post-excerpt (upright, sans, warm-soft). */
 .single-excerpt {
   margin-top: 2rem;
   word-break: break-word;
-  font-style: italic;
-  color: var(--color-text-muted);
-}
-
-.has-serif-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"])
-  .single-excerpt {
-  font-family: var(--gh-font-body, var(--font-serif));
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  text-wrap: pretty;
 }
 
 .single-media {
