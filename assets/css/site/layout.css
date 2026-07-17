@@ -83,10 +83,12 @@
    slides in over the content; the main column takes the full width. Defined
    once so both pages collapse identically. */
 @media (max-width: 900px) {
-  /* The layout stays a flex row: the toggle is a small in-flow left column and
-     the main content sits beside it, so align-items:flex-start top-aligns the
-     toggle with the page title. The drawer (.sidebar) is taken out of flow
-     (fixed) so it no longer occupies a column. */
+  /* Stack vertically: the toggle sits at the top and the content flows below
+     it full-width (no shared left column). The drawer (.sidebar) is taken out
+     of flow (fixed) so it no longer occupies a column. */
+  .site-main.sidebar-layout {
+    display: block;
+  }
 
   /* Scoped under the layout so these win over the base .sidebar component
      rules (which load later, from tag-archive.css) at equal specificity. */
@@ -129,13 +131,12 @@
     visibility: visible;
   }
 
-  /* In-flow left column, top-aligned with the page title via the row's
-     align-items: flex-start. */
+  /* Sits at the top of the page; the content stacks below it. */
   .sidebar-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    flex-shrink: 0;
+    margin-bottom: 2.5rem;
     padding: 0;
     border: 0;
     background: none;
