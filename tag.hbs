@@ -31,7 +31,9 @@
 
   <div class="tag-main">
     {{#tag}}
-    <h1 class="tag-title">{{name}}</h1>
+    <a class="tag-breadcrumb" href="{{@site.url}}/">{{#match slug "visualizing"}}Spending my nights on{{else match slug "not-using-ai-for"}}Spending my nights on{{else match slug "organizing"}}Spending my nights on{{else match slug "curating"}}Spending my nights on{{else}}Spending my days on{{/match}}</a>
+
+    <h1 class="tag-title">{{#match slug "using-ai-for"}}Using AI for{{else match slug "not-using-ai-for"}}Not using AI for{{else}}{{name}}{{/match}}</h1>
 
     <hr class="tag-rule" />
 
