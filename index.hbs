@@ -28,41 +28,9 @@
     <section class="portfolio-column portfolio-column--days">
       <h2 class="portfolio-column-heading">Spending my days on</h2>
 
-      <div class="portfolio-subsection">
-        <div class="portfolio-subsection-head">
-          <span class="portfolio-subsection-label">Designing</span>
-          <a class="portfolio-see-all" href="/tag/designing/">See all</a>
-        </div>
-        <div class="portfolio-item-list">
-          {{#get "posts" limit="2" filter="tag:designing" order="published_at desc" as |posts|}}
-            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-          {{/get}}
-        </div>
-      </div>
-
-      <div class="portfolio-subsection">
-        <div class="portfolio-subsection-head">
-          <span class="portfolio-subsection-label">Observing</span>
-          <a class="portfolio-see-all" href="/tag/observing/">See all</a>
-        </div>
-        <div class="portfolio-item-list portfolio-item-list--articles">
-          {{#get "posts" limit="2" filter="tag:observing" order="published_at desc" as |posts|}}
-            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-          {{/get}}
-        </div>
-      </div>
-
-      <div class="portfolio-subsection">
-        <div class="portfolio-subsection-head">
-          <span class="portfolio-subsection-label">Using AI for</span>
-          <a class="portfolio-see-all" href="/tag/using-ai-for/">See all</a>
-        </div>
-        <div class="portfolio-item-list">
-          {{#get "posts" limit="2" filter="tag:using-ai-for" order="published_at desc" as |posts|}}
-            {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-          {{/get}}
-        </div>
-      </div>
+      {{> "portfolio-sections/subsection" label="Designing" slug="designing"}}
+      {{> "portfolio-sections/subsection" label="Observing" slug="observing" articles=true}}
+      {{> "portfolio-sections/subsection" label="Using AI for" slug="using-ai-for"}}
     </section>
 
     {{!-- ── Spending my nights on ── --}}
@@ -71,41 +39,9 @@
 
       <div class="portfolio-nights-grid">
 
-        <div class="portfolio-subsection">
-          <div class="portfolio-subsection-head">
-            <span class="portfolio-subsection-label">Visualizing</span>
-            <a class="portfolio-see-all" href="/tag/visualizing/">See all</a>
-          </div>
-          <div class="portfolio-item-list">
-            {{#get "posts" limit="2" filter="tag:visualizing" order="published_at desc" as |posts|}}
-              {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-            {{/get}}
-          </div>
-        </div>
-
-        <div class="portfolio-subsection">
-          <div class="portfolio-subsection-head">
-            <span class="portfolio-subsection-label">Not using AI for</span>
-            <a class="portfolio-see-all" href="/tag/not-using-ai-for/">See all</a>
-          </div>
-          <div class="portfolio-item-list">
-            {{#get "posts" limit="2" filter="tag:not-using-ai-for" order="published_at desc" as |posts|}}
-              {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-            {{/get}}
-          </div>
-        </div>
-
-        <div class="portfolio-subsection">
-          <div class="portfolio-subsection-head">
-            <span class="portfolio-subsection-label">Organizing</span>
-            <a class="portfolio-see-all" href="/tag/organizing/">See all</a>
-          </div>
-          <div class="portfolio-item-list">
-            {{#get "posts" limit="2" filter="tag:organizing" order="published_at desc" as |posts|}}
-              {{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}
-            {{/get}}
-          </div>
-        </div>
+        {{> "portfolio-sections/subsection" label="Visualizing" slug="visualizing"}}
+        {{> "portfolio-sections/subsection" label="Not using AI for" slug="not-using-ai-for"}}
+        {{> "portfolio-sections/subsection" label="Organizing" slug="organizing"}}
 
       </div>
     </section>

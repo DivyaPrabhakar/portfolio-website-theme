@@ -1,0 +1,14 @@
+{{!-- One landing-page subsection. Shows up to 2 posts for the tag; when the
+      tag has no posts yet, renders a "Coming soon" placeholder and hides the
+      "See all" link. Params: label, slug, articles (optional flag).
+      Note: inside {{#get}} the context switches, so the label lives outside it
+      and the href reaches the partial context with ../slug. --}}
+<div class="portfolio-subsection">
+  <div class="portfolio-subsection-head">
+    <span class="portfolio-subsection-label">{{label}}</span>
+    {{#get "posts" limit="1" filter="tag:{{slug}}" as |posts|}}{{#if posts}}<a class="portfolio-see-all" href="/tag/{{../slug}}/">See all</a>{{/if}}{{/get}}
+  </div>
+  <div class="portfolio-item-list{{#if articles}} portfolio-item-list--articles{{/if}}">
+    {{#get "posts" limit="2" filter="tag:{{slug}}" order="published_at desc" as |posts|}}{{#if posts}}{{#foreach posts}}{{> "portfolio-sections/post-card"}}{{/foreach}}{{else}}<p class="portfolio-coming-soon">Coming soon</p>{{/if}}{{/get}}
+  </div>
+</div>

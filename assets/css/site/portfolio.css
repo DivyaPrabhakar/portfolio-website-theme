@@ -197,6 +197,15 @@
   display: none;
 }
 
+/* Placeholder shown when a section has no posts yet. */
+.portfolio-coming-soon {
+  margin: 0;
+  padding: 0.4rem 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
 .portfolio-post-item {
   display: flex;
   gap: 1rem;
